@@ -1,0 +1,9 @@
+web:
+  image: nginx:1.16.1
+  restart: always
+  ports:
+    - 80:80
+  volumes:
+    - /srv/docs:/srv/docs
+    - ./root:/usr/share/nginx/html
+    - ./config:/etc/nginx/conf.d
