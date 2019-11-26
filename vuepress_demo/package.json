@@ -1,9 +1,18 @@
 {
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "docs:export": "vuepress export docs",
+    "bump-version": "node -e 'require(\"./docs/.vuepress/lib/versioning.js\").generate()'"
   },
   "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.2.0",
+    "@vuepress/plugin-medium-zoom": "^1.2.0",
+    "@vuepress/plugin-search": "^1.2.0",
     "vuepress": "^1.2.0"
+  },
+  "dependencies": {
+    "fs-extra": "^7.0.1",
+    "vuepress-plugin-export": "^0.2.0"
   }
 }

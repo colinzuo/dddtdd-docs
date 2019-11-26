@@ -1,3 +1,10 @@
+const versioning = require('./lib/versioning.js')
+
+fullSidebars = versioning.sidebars
+fullSidebars['/apple/'] = getDemoSidebar()
+fullSidebars['/pear/'] = getDemoSidebar()
+fullSidebars['/grape/'] = getDemoSidebar()
+
 module.exports = {
     base: '/docs/group_fruit/',
     locales: {
@@ -8,11 +15,20 @@ module.exports = {
       }
     },
     themeConfig: {
+      versions: {
+        latest: versioning.versions.latest,
+        selected: versioning.versions.latest,
+        all: versioning.versions.all
+      },
       locales: {
         '/': {
           label: 'English',
           selectText: 'Languages',
           nav: [
+            {
+              text: 'Docs',
+              items: versioning.linksFor('getting-started/')
+            },
             {
               text: 'ApplePear',
               items: [
@@ -31,36 +47,42 @@ module.exports = {
                 link: '/grape/'
             }
           ],
-          sidebar: {
-            '/apple/': getDemoSidebar(),
-            '/pear/': getDemoSidebar(),
-            '/grape/': getDemoSidebar()
-          }
+          sidebar: fullSidebars
         }
       }
-    }
+    },
+    plugins: [
+        ['@vuepress/back-to-top', true],
+        ['@vuepress/medium-zoom', true],
+        ['@vuepress/search', {
+            searchMaxSuggestions: 10,
+            // Only search the latest version, e.g. 4.3, otherwise many duplicates will show up
+            test: `/${versioning.versions.latest.replace('.', '\\.')}/`
+        }],
+        ['vuepress-plugin-export', true],
+    ]
 }
 
-function getDemoSidebar () {
-    return [
-      {
-        title: "GroupA",
-        collapsable: false,
-        children: [
-          '',
-          'page-a-1',
-          'page-a-2',
-          'page-a-3'
-        ]
-      },
-      {
-        title: "GroupB",
-        collapsable: false,
-        children: [
-            'page-b-1',
-            'page-b-2',
-            'page-b-3'
-        ]
-      }
-    ]
-  }  
+function getDemoSidebar() {
+  return [
+    {
+      title: "GroupA",
+      collapsable: false,
+      children: [
+        '',
+        'page-a-1',
+        'page-a-2',
+        'page-a-3'
+      ]
+    },
+    {
+      title: "GroupB",
+      collapsable: false,
+      children: [
+          'page-b-1',
+          'page-b-2',
+          'page-b-3'
+      ]
+    }
+  ]
+}
