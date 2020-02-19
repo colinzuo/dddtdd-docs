@@ -6,7 +6,7 @@ fullSidebars['/pear/'] = getDemoSidebar()
 fullSidebars['/grape/'] = getDemoSidebar()
 
 module.exports = {
-    base: '/docs/group_fruit/',
+    base: '/docs_server/',
     locales: {
       '/': {
         lang: 'en-US',

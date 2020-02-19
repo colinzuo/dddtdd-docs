@@ -4,6 +4,6 @@ web:
   ports:
     - 80:80
   volumes:
-    - /srv/docs:/srv/docs
+    - /srv/docs_server:/srv/docs_server
     - ./root:/usr/share/nginx/html
     - ./config:/etc/nginx/conf.d
