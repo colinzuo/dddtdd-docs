@@ -1,17 +1,14 @@
 const versioning = require('./lib/versioning.js')
 
 fullSidebars = versioning.sidebars
-fullSidebars['/apple/'] = getDemoSidebar()
-fullSidebars['/pear/'] = getDemoSidebar()
-fullSidebars['/grape/'] = getDemoSidebar()
 
 module.exports = {
     base: '/docs_server/',
     locales: {
       '/': {
         lang: 'en-US',
-        title: 'Group Fruit',
-        description: 'A group of fruits'
+        title: 'Document Center',
+        description: 'Document Center'
       }
     },
     themeConfig: {
@@ -28,23 +25,6 @@ module.exports = {
             {
               text: 'Docs',
               items: versioning.linksFor('getting-started/')
-            },
-            {
-              text: 'ApplePear',
-              items: [
-                {
-                  text: 'Apple',
-                  link: '/apple/',
-                },
-                {
-                  text: 'Pear',
-                  link: '/pear/'
-                }
-              ]
-            },
-            {
-                text: 'Grape',
-                link: '/grape/'
             }
           ],
           sidebar: fullSidebars
@@ -61,28 +41,4 @@ module.exports = {
         }],
         ['vuepress-plugin-export', true],
     ]
-}
-
-function getDemoSidebar() {
-  return [
-    {
-      title: "GroupA",
-      collapsable: false,
-      children: [
-        '',
-        'page-a-1',
-        'page-a-2',
-        'page-a-3'
-      ]
-    },
-    {
-      title: "GroupB",
-      collapsable: false,
-      children: [
-          'page-b-1',
-          'page-b-2',
-          'page-b-3'
-      ]
-    }
-  ]
 }

@@ -2,8 +2,10 @@ web:
   image: nginx:1.16.1
   restart: always
   ports:
-    - 80:80
+    - 443:443
   volumes:
     - /srv/docs_server:/srv/docs_server
+    - /srv/auto-portal:/srv/auto-portal
+    - /srv/cert:/srv/cert
     - ./root:/usr/share/nginx/html
     - ./config:/etc/nginx/conf.d

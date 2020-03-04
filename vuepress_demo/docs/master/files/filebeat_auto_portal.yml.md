@@ -1,0 +1,43 @@
+```
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+  - /srv/apb/proj-auto-portal-backend/logs/app.log*
+
+  include_lines: ['ERROR', 'WARN', 'json_extract_prefix']
+
+  multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  multiline.negate: true
+  multiline.match: after
+
+  json_extract.json_extract_prefix: "json_extract_prefix"
+
+  fields:
+    msg_format: simple
+    app: auto-portal-backend
+
+#========================= Filebeat global options ============================
+
+filebeat.registry.flush: 2s
+
+#================================ General =====================================
+
+processors:
+
+  - decode_json_fields:
+      fields: ["json_extract"]
+      max_depth: 5
+      process_array: false
+      add_error_key: true
+  - drop_fields:
+      fields: ["beat.version"]
+
+#================================ Outputs =====================================
+
+#----------------------------- Logstash output --------------------------------
+output.logstash:
+  # The Logstash hosts
+  hosts: ["172.16.23.70:5044"]
+  index: filebeat-autotest
+```

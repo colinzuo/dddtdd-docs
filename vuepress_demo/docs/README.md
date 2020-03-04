@@ -1,11 +1,9 @@
 ﻿---
 title: Home
 ---
-# apple
-[apple doc](./apple/README.md)
+# Main Index
+[Getting Started](./master/getting-started/README.md)
 
-# grape
-[grape doc](./grape/README.md)
+[Setup Env](./master/setup-env/README.md)
 
-# pear
-[pear doc](./pear/README.md)
+[Test](./master/testing/README.md)
