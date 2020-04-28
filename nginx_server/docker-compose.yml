@@ -6,7 +6,7 @@ web:
   volumes:
     - /srv/docs_server:/srv/docs_server
     - /srv/auto-portal:/srv/auto-portal
-    - /srv/testjobs-master:/srv/testjobs-master
+    - /srv/testjobs-fe:/srv/testjobs-fe
     - /srv/testjobs-worker-leader:/srv/testjobs-worker-leader
     - /srv/cert:/srv/cert
     - ./root:/usr/share/nginx/html
