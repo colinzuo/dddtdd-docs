@@ -6,16 +6,24 @@ module.exports = [
         ]
     },
     {
-        title: 'Setup Env',
+        title: 'FrontEnd',
         children: [
-            'setup-env/',
-            'setup-env/docker.md',
-            'setup-env/elk.md',
-            'setup-env/nginx.md',
-            'setup-env/kubernetes.md',
-            'setup-env/rancher.md',
-            'setup-env/gcloud.md',
-            'setup-env/helm.md',
+            'frontend/',
+            'frontend/setup-angular-project',
+            'frontend/manage-angular-project',
+        ]
+    },    
+    {
+        title: 'Setup Deployment Env',
+        children: [
+            'setup-deployment-env/',
+            'setup-deployment-env/docker.md',
+            'setup-deployment-env/elk.md',
+            'setup-deployment-env/nginx.md',
+            'setup-deployment-env/kubernetes.md',
+            'setup-deployment-env/rancher.md',
+            'setup-deployment-env/gcloud.md',
+            'setup-deployment-env/helm.md',
         ]
     },
     {
@@ -23,11 +31,17 @@ module.exports = [
         children: [
             'testing/',
         ],
-    },
+    }, 
     {
-        title: 'API Reference',
+        title: 'Programming Languages',
         children: [
-            'api-reference/',
+            'programming-languages/',
+        ]
+    },    
+    {
+        title: 'Go Lang',
+        children: [
+            'programming-languages/golang/',
         ]
     },
 ];
