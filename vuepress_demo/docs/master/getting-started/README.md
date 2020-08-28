@@ -1,28 +1,16 @@
-# Setup
+# 介绍
 
-The following section teaches you how to setup dev environment.
+## 前端
+[前端](../frontend/README.md)框架如angular，vue，react
 
-## Misc
+## 后端
+[后端](../backend/README.md)框架如spring
 
-npm install --save jasmine-marbles
+## 编程语言
+[编程语言](../programming-languages/README.md)如golang, java, javascript, python
 
-npm install --save bootstrap
+## 云
+[云](../cloud/README.md)相关如docker，kubernets
 
-<!-- npm install -D jest jest-preset-angular @types/jest -->
-<!-- npm install --save-dev cypress -->
-
-[ngrx-example-app](https://github.com/ngrx/platform/tree/master/projects/example-app)
-[angular-ngrx-material-starter](https://github.com/tomastrajan/angular-ngrx-material-starter)
-```
-copy platform\projects\example-app\src\app\auth
-```
-ng generate component -m auth auth/components/login-page
-ng generate component -m auth auth/components/login-form
-ng generate component -m auth auth/components/logout-confirmation-dialog
-
-ng generate module core
-ng generate module features/login
-ng generate module features/main
-ng generate @angular/material:address-form -m main features/login/login
-ng generate @angular/material:nav -m main features/main/main
-
+## 中间件
+[中间件](../middleware/README.md)如mysql, elk, mongodb, redis, kafka

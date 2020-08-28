@@ -7,41 +7,97 @@ module.exports = [
     },
     {
         title: 'FrontEnd',
+        sidebarDepth: 2,
         children: [
             'frontend/',
-            'frontend/setup-angular-project',
-            'frontend/manage-angular-project',
-        ]
-    },    
-    {
-        title: 'Setup Deployment Env',
-        children: [
-            'setup-deployment-env/',
-            'setup-deployment-env/docker.md',
-            'setup-deployment-env/elk.md',
-            'setup-deployment-env/nginx.md',
-            'setup-deployment-env/kubernetes.md',
-            'setup-deployment-env/rancher.md',
-            'setup-deployment-env/gcloud.md',
-            'setup-deployment-env/helm.md',
+            {
+                title: 'Angular',
+                children: [
+                    'frontend/angular/',
+                    'frontend/angular/setup-angular-project',
+                    'frontend/angular/manage-angular-project',
+                    'frontend/angular/auth',
+                    'frontend/angular/awesome',
+                ]
+            },
+            {
+                title: 'Vue',
+                children: [
+                    'frontend/vue/',
+                    'frontend/vue/awesome',
+                ]
+            },
+            {
+                title: 'React',
+                children: [
+                    'frontend/react/',
+                ]
+            }
         ]
     },
     {
-        title: "Testing",
+        title: 'BackEnd',
         children: [
-            'testing/',
-        ],
+            {
+                title: 'spring',
+                children: [
+                    'backend/spring/',
+                ]
+            }
+        ]
     }, 
     {
         title: 'Programming Languages',
         children: [
-            'programming-languages/',
+            {
+                title: 'golang',
+                children: [
+                    'programming-languages/golang/',
+                ]
+            },
+            {
+                title: 'java',
+                children: [
+                    'programming-languages/java/',
+                ]
+            },
+            {
+                title: 'javascript',
+                children: [
+                    'programming-languages/javascript/',
+                ]
+            },
+            {
+                title: 'python',
+                children: [
+                    'programming-languages/python/',
+                ]
+            }
         ]
     },    
     {
-        title: 'Go Lang',
+        title: 'Cloud',
         children: [
-            'programming-languages/golang/',
+            'cloud/',
+            'cloud/docker.md',
+            'cloud/elk.md',
+            'cloud/nginx.md',
+            'cloud/kubernetes.md',
+            'cloud/rancher.md',
+            'cloud/gcloud.md',
+            'cloud/helm.md',
         ]
-    },
+    },   
+    {
+        title: 'Middleware',
+        children: [
+            'middleware/',
+            {
+                title: 'Kafka',
+                children: [
+                    'middleware/kafka/',
+                ]
+            }
+        ]
+    }
 ];

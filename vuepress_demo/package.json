@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "docs:export": "vuepress export docs",
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "export": "vuepress export docs",
     "bump-version": "node -e 'require(\"./docs/.vuepress/lib/versioning.js\").generate()'"
   },
   "devDependencies": {
