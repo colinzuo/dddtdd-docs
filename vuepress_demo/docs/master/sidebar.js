@@ -24,6 +24,7 @@ module.exports = [
                 title: 'Vue',
                 children: [
                     'frontend/vue/',
+                    'frontend/vue/setup-vue-project',
                     'frontend/vue/awesome',
                 ]
             },
@@ -86,6 +87,7 @@ module.exports = [
             'cloud/rancher.md',
             'cloud/gcloud.md',
             'cloud/helm.md',
+            'cloud/operator.md',
         ]
     },   
     {
@@ -96,6 +98,44 @@ module.exports = [
                 title: 'Kafka',
                 children: [
                     'middleware/kafka/',
+                ]
+            },
+            {
+                title: 'Mysql',
+                children: [
+                    'middleware/mysql/timezone',
+                    'middleware/mysql/account',
+                ]
+            }
+        ]
+    },   
+    {
+        title: 'Tools',
+        children: [
+            'tools/',
+            {
+                title: 'IntelliJ IDEA',
+                children: [
+                    'tools/intellij-idea/',
+                ]
+            }
+        ]
+    },   
+    {
+        title: 'Topic',
+        children: [
+            'topic/',
+            {
+                title: 'Rest',
+                children: [
+                    'topic/rest/error-handling',
+                ]
+            },
+            {
+                title: 'Security',
+                children: [
+                    'topic/security/',
+                    'topic/security/oauth2',
                 ]
             }
         ]
