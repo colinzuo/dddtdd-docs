@@ -60,6 +60,13 @@ module.exports = [
                 title: 'java',
                 children: [
                     'programming-languages/java/',
+                    {
+                        title: 'grpc',
+                        children: [
+                            'programming-languages/java/grpc/',
+                            'programming-languages/java/grpc/set-header',
+                        ]
+                    }
                 ]
             },
             {
