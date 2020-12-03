@@ -2,7 +2,7 @@ var baseUrl = '/'
 const isProd = process.env.NODE_ENV === 'production';
 
 if (isProd) {
-  baseUrl = '/docs_server/'
+  baseUrl = '/dddtdd-docs/'
 }
 
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo.png',
   organizationName: 'colinzuo',
-  projectName: 'docs_server',
+  projectName: 'dddtdd-docs',
   themeConfig: {
     prism: {
       additionalLanguages: ['java'],

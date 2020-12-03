@@ -9,7 +9,7 @@ yarn build
 # navigate into the build output directory
 cd build
 
-DEST_BASE_DIR=/srv/docs_server/
+DEST_BASE_DIR=/srv/dddtdd-docs/
 OPTIONS="-avzh --delete"
 TARGET_IP=127.0.0.1
 

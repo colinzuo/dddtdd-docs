@@ -177,6 +177,19 @@ module.exports = {
         'topic/README',
         {
           type: 'category',
+          label: '部署',
+          items: [
+            'topic/deployment/README',
+            'topic/deployment/tools',
+            'topic/deployment/setup-ubuntu-basic',
+            'topic/deployment/setup-ubuntu-dev',
+            'topic/deployment/setup-ubuntu-env',
+            'topic/deployment/setup-ansible-project',
+            'topic/deployment/k8s-cluster-setup',
+          ],
+        },
+        {
+          type: 'category',
           label: '分布式tracing',
           items: [
             'topic/distributed-tracing/README',

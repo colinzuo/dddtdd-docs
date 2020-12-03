@@ -13,7 +13,7 @@ git init
 git add -A
 git commit -m 'deploy'
 
-git push -f git@github.com:colinzuo/docs_server.git master:gh-pages
+git push -f git@github.com:colinzuo/dddtdd-docs.git master:gh-pages
 
 cd -
 
