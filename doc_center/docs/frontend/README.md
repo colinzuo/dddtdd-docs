@@ -16,7 +16,3 @@ Vue和angular比可以直接在html中用script引用，从而可以逐步引入
 最后学的是react，react的封装性很好，尤其是使用hook后，每个component比较独立，很符合
 composition优于inheritence的理念，另外普通门户网站可以用next.js搭建，内部门户类的可以
 用Antd Pro，所以个人倾向使用react。
-
-+ [Angular](./angular/README)
-+ [Vue](./vue/README)
-+ [React](./react/README)
