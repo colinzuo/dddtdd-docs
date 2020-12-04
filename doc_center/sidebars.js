@@ -185,6 +185,7 @@ module.exports = {
             'topic/deployment/setup-ubuntu-dev',
             'topic/deployment/setup-ubuntu-env',
             'topic/deployment/setup-ansible-project',
+            'topic/deployment/deploy-use-ansible-project',
             'topic/deployment/k8s-cluster-setup',
           ],
         },

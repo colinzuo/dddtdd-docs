@@ -84,3 +84,7 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install build-essential
 ```
+
+## 安装nodejs
+如果有编译运行nodejs程序的需求，可以参照
+[安装nodejs](../../frontend/common/setup-env#安装nodejs)
