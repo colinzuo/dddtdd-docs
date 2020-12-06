@@ -225,6 +225,7 @@ module.exports = {
           items: [
             'topic/security/README',
             'topic/security/oauth2',
+            'topic/security/authorization-server',
           ],
         },
       ]
