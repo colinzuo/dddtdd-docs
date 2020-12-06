@@ -4,10 +4,7 @@ web:
   ports:
     - 443:443
   volumes:
-    - /srv/docs_server:/srv/docs_server
-    - /srv/auto-portal:/srv/auto-portal
-    - /srv/testjobs-fe:/srv/testjobs-fe
-    - /srv/testjobs-worker-leader:/srv/testjobs-worker-leader
-    - /srv/cert:/srv/cert
     - ./root:/usr/share/nginx/html
     - ./config:/etc/nginx/conf.d
+    - /srv/cert:/srv/cert
+    - /srv/docs_server:/srv/docs_server    
