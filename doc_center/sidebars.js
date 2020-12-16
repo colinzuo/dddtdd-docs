@@ -64,6 +64,11 @@ module.exports = {
             'backend/spring/README',
             'backend/spring/webflux',
             'backend/spring/different-async-web',
+            'backend/spring/spring-boot-actuator',
+            'backend/spring/spring-cloud-netflix',
+            'backend/spring/spring-cloud-circuitbreaker',
+            'backend/spring/spring-cloud-gateway',
+            'backend/spring/observability',
           ],
         },
       ]
@@ -85,12 +90,21 @@ module.exports = {
           label: 'Java',
           items: [
             'programming-languages/java/README',
+            'programming-languages/java/install-on-ubuntu-18',
             {
               type: 'category',
               label: 'Grpc',
               items: [
                 'programming-languages/java/grpc/README',
                 'programming-languages/java/grpc/set-header',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Cache',
+              items: [
+                'programming-languages/java/cache/README',
+                'programming-languages/java/cache/caffeine',
               ],
             },
           ],
@@ -133,6 +147,14 @@ module.exports = {
         'middleware/README',
         {
           type: 'category',
+          label: 'dialogflow',
+          items: [
+            'middleware/dialogflow/README',
+            'middleware/dialogflow/create-service-account',
+          ],
+        },
+        {
+          type: 'category',
           label: 'kafka',
           items: [
             'middleware/kafka/README',
@@ -145,6 +167,13 @@ module.exports = {
             'middleware/mysql/README',
             'middleware/mysql/account',
             'middleware/mysql/timezone',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'prometheus',
+          items: [
+            'middleware/prometheus/README',
           ],
         },
       ]
@@ -177,6 +206,14 @@ module.exports = {
         'topic/README',
         {
           type: 'category',
+          label: 'API网关',
+          items: [
+            'topic/api-gateway/README',
+            'topic/api-gateway/nginx-config',
+          ],
+        },
+        {
+          type: 'category',
           label: '部署',
           items: [
             'topic/deployment/README',
@@ -201,6 +238,7 @@ module.exports = {
                 'topic/distributed-tracing/zipkin/README',
               ],
             },
+            'topic/distributed-tracing/spring-cloud-sleuth',
           ],
         },
         {

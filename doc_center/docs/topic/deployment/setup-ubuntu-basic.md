@@ -88,3 +88,6 @@ sudo apt-get install build-essential
 ## 安装nodejs
 如果有编译运行nodejs程序的需求，可以参照
 [安装nodejs](../../frontend/common/setup-env#安装nodejs)
+
+## 安装docker
+目前一般开发都涉及docker，可以参照[安装docker](../../cloud/docker)
