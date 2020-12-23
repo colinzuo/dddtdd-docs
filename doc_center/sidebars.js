@@ -62,6 +62,13 @@ module.exports = {
           label: 'Spring',
           items: [
             'backend/spring/README',
+            {
+              type: 'category',
+              label: 'Reactive Stack',
+              items: [
+                'backend/spring/reactive-stack/README',
+              ],
+            },
             'backend/spring/webflux',
             'backend/spring/different-async-web',
             'backend/spring/spring-boot-actuator',
