@@ -83,6 +83,7 @@ module.exports = {
           label: 'Golang',
           items: [
             'programming-languages/golang/README',
+            'programming-languages/golang/compile',
           ],
         },
         {
@@ -183,6 +184,14 @@ module.exports = {
       label: '开发工具',
       items: [
         'tools/README',
+        {
+          type: 'category',
+          label: 'Git',
+          items: [
+            'tools/git/README',
+            'tools/git/submodules',
+          ],
+        },
         {
           type: 'category',
           label: 'Intellij Idea',
