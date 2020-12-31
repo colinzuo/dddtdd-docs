@@ -1,5 +1,6 @@
 ---
-title: Kubernetes
+title: Kubernetes介绍
+slug: /cloud/kubernetes/
 ---
 
 ## Install and Set Up kubectl

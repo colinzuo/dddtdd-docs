@@ -139,8 +139,22 @@ module.exports = {
       items: [
         'cloud/README',
         'cloud/docker',
-        'cloud/kubernetes',
-        'cloud/helm',
+        {
+          type: 'category',
+          label: 'kubernetes',
+          items: [
+            'cloud/kubernetes/README',
+            'cloud/kubernetes/debug',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'helm',
+          items: [
+            'cloud/helm/README',
+            'cloud/helm/custom-template',
+          ],
+        },
         'cloud/operator',
         'cloud/rancher',
         'cloud/elk',

@@ -1,5 +1,6 @@
 ---
-title: Helm
+title: Helm介绍
+slug: /cloud/helm/
 ---
 
 ## Install Helm

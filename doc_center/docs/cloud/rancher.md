@@ -18,7 +18,7 @@ To manage kuernete clusters, there are free tools like [Rancher][],
 [Setup GCE](./gcloud.md)
 
 ### Install and Set Up kubectl
-[Install and Set Up kubectl](./kubernetes.md)
+[Install and Set Up kubectl](./kubernetes/README.md)
 
 ### Install RKE
 https://rancher.com/docs/rke/latest/en/installation/
@@ -60,7 +60,7 @@ export KUBECONFIG=$HOME/.kube/rancher_config
 ```
 
 ### Install Helm
-[Install Helm](./helm.md)
+[Install Helm](./helm/README.md)
 
 ### Install Rancher Itself
 ```bash
