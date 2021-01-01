@@ -1,0 +1,41 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.footerLogoLink {
+  opacity: 0.5;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.footerLogoLink:hover {
+  opacity: 1;
+}
+
+.beianContainer {
+  display: flex;
+  justify-content: center;
+  padding:20px 0;
+}
+
+.beianLink {
+  display:inline-block;
+  text-decoration:none;
+  height:20px;
+  line-height:20px;
+  margin-right: 20px;
+}
+
+.beianImage {
+  float:left;
+}
+
+.beianNumber {
+  float:left;
+  height:20px;
+  line-height:20px;
+  margin: 0px 0px 0px 5px; 
+  color:#939393;
+}
