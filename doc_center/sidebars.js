@@ -296,6 +296,13 @@ module.exports = {
             'topic/security/authorization-server',
           ],
         },
+        {
+          type: 'category',
+          label: 'webrtc',
+          items: [
+            'topic/webrtc/transcode',
+          ],
+        },
       ]
     },
   ]
