@@ -244,6 +244,13 @@ module.exports = {
         },
         {
           type: 'category',
+          label: '云供应商',
+          items: [
+            'topic/cloud-provider/amazon',
+          ],
+        },
+        {
+          type: 'category',
           label: '部署',
           items: [
             'topic/deployment/README',
@@ -301,6 +308,7 @@ module.exports = {
           label: 'webrtc',
           items: [
             'topic/webrtc/transcode',
+            'topic/webrtc/webrtc-internal',
           ],
         },
       ]

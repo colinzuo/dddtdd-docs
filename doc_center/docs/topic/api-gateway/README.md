@@ -22,3 +22,14 @@ Nginx -> API网关(基于Spring Cloud Gateway) -> 微服务
 ## Spring Cloud Gateway
 
 见[文档](../../backend/spring/spring-cloud-gateway)
+
+## Amazon API Gateway
+
+<https://aws.amazon.com/api-gateway/>
+
+主要功能包括:
+- 多版本API
+- 监控：调用次数，延迟，错误率等，Amazon CloudWatch
+- 限流：throttle
+- 认证：authentication和authorization，比如基于OAuth2
+- 缓存：API Gateway Cache
