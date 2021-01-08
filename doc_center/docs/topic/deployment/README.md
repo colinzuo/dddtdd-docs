@@ -12,3 +12,7 @@ VM本身的创建应该基于terraform，不过个人没有机会尝试，从一
 
 kubernetes中部署采用helm，初始的部署可以通过ansible调用helm，部署具体模块时推荐使用
 operator模式的从而降低人工运维的工作。
+
+## 培训视频
+
+[Highly Available and Resilient Multi-Site Deployments Using Spinnaker](https://www.youtube.com/watch?v=-gkt_Ch-qb0)

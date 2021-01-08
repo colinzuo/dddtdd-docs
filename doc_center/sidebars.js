@@ -288,6 +288,20 @@ module.exports = {
         },
         {
           type: 'category',
+          label: '监控',
+          items: [
+            'topic/monitor/README',
+          ],
+        },
+        {
+          type: 'category',
+          label: '响应式',
+          items: [
+            'topic/reactive/README',
+          ],
+        },
+        {
+          type: 'category',
           label: 'RestApi',
           items: [
             'topic/rest/README',
@@ -305,8 +319,16 @@ module.exports = {
         },
         {
           type: 'category',
+          label: '测试',
+          items: [
+            'topic/test/README',
+          ],
+        },
+        {
+          type: 'category',
           label: 'webrtc',
           items: [
+            'topic/webrtc/README',
             'topic/webrtc/transcode',
             'topic/webrtc/webrtc-internal',
           ],

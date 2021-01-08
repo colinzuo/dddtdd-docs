@@ -28,7 +28,7 @@ title: OAuth2
 [authorizing-oauth-apps](https://docs.github.com/en/developers/apps/authorizing-oauth-apps)
 
 
-## References
+## 参考文档
 [RFC6749 The OAuth 2.0 Authorization Framework](https://tools.ietf.org/rfc/rfc6749.txt)
 
 [RFC6750 The OAuth 2.0 Authorization Framework: Bearer Token Usage](https://tools.ietf.org/rfc/rfc6750.txt)
@@ -44,3 +44,8 @@ title: OAuth2
 [keycloak](https://www.keycloak.org/)，如果自己搭建可以用这个
 
 [spring-security-and-angular-js](https://spring.io/guides/tutorials/spring-security-and-angular-js/)
+
+## 培训视频
+
+[Enabling Secure Code at Scale with Spring & OAuth2](https://www.youtube.com/watch?v=EBdm683HdAo)
+
