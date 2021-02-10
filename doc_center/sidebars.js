@@ -64,9 +64,35 @@ module.exports = {
             'backend/spring/README',
             {
               type: 'category',
+              label: 'Auto Configure',
+              items: [
+                'backend/spring/auto-configure/README',
+              ],
+            },
+            {
+              type: 'category',
               label: 'Reactive Stack',
               items: [
                 'backend/spring/reactive-stack/README',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Spring Cloud Gateway',
+              items: [
+                'backend/spring/spring-cloud-gateway/README',
+                'backend/spring/spring-cloud-gateway/compilation',
+                {
+                  type: 'category',
+                  label: '学习笔记',
+                  items: [
+                    'backend/spring/spring-cloud-gateway/study-note/README',
+                    'backend/spring/spring-cloud-gateway/study-note/spring-cloud-gateway-docs',
+                    'backend/spring/spring-cloud-gateway/study-note/spring-cloud-gateway-dependencies',
+                    'backend/spring/spring-cloud-gateway/study-note/spring-cloud-gateway-mvc',
+                    'backend/spring/spring-cloud-gateway/study-note/spring-cloud-gateway-webflux',
+                  ],
+                },
               ],
             },
             'backend/spring/webflux',
@@ -74,7 +100,8 @@ module.exports = {
             'backend/spring/spring-boot-actuator',
             'backend/spring/spring-cloud-netflix',
             'backend/spring/spring-cloud-circuitbreaker',
-            'backend/spring/spring-cloud-gateway',
+            'backend/spring/spring-data',
+            'backend/spring/spring-security',
             'backend/spring/observability',
           ],
         },
@@ -244,6 +271,13 @@ module.exports = {
         },
         {
           type: 'category',
+          label: 'CI CD',
+          items: [
+            'topic/ci-cd/README',
+          ],
+        },
+        {
+          type: 'category',
           label: '云供应商',
           items: [
             'topic/cloud-provider/amazon',
@@ -322,6 +356,7 @@ module.exports = {
           label: '测试',
           items: [
             'topic/test/README',
+            'topic/test/cplusplus',
           ],
         },
         {
@@ -331,6 +366,27 @@ module.exports = {
             'topic/webrtc/README',
             'topic/webrtc/transcode',
             'topic/webrtc/webrtc-internal',
+          ],
+        },
+      ]
+    },
+    {
+      type: 'category',
+      label: '开源项目',
+      items: [
+        {
+          type: 'category',
+          label: 'Carla',
+          items: [
+            'opensource-projects/carla/README',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'UE4',
+          items: [
+            'opensource-projects/ue4/README',
+            'opensource-projects/ue4/getting-started',
           ],
         },
       ]
