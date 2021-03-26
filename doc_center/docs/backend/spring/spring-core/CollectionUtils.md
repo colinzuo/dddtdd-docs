@@ -1,0 +1,20 @@
+
+- isEmpty
+- newHashMap
+- newLinkedHashMap
+- arrayToList
+- mergeArrayIntoCollection
+- mergePropertiesIntoMap
+- contains
+- containsInstance
+- containsAny
+- findFirstMatch
+- findValueOfType
+- hasUniqueObject
+- findCommonElementType
+- firstElement
+- lastElement
+- toArray
+- toIterator
+- toMultiValueMap
+- unmodifiableMultiValueMap

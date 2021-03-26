@@ -193,4 +193,7 @@ void longBeep() {
 
 <https://github.com/IBM/microsvcengineering/blob/master/microsvcframework/src/main/java/com/ibm/dip/microsvcengineering/framework/monitoring/MonitoringAOPConfig.java>
 
+## 培训视频
+
+[Using Metrics to Ensure Quality Applications in Pivotal Platform](https://www.youtube.com/watch?v=k6ghIRyvYD4)
 

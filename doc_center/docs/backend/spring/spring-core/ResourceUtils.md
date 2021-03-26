@@ -1,0 +1,24 @@
+
+- `String CLASSPATH_URL_PREFIX = "classpath:"`
+- `String FILE_URL_PREFIX = "file:"`
+- `String JAR_URL_PREFIX = "jar:"`
+- `String URL_PROTOCOL_FILE = "file"`
+- `String URL_PROTOCOL_JAR = "jar"`
+- `String URL_PROTOCOL_ZIP = "zip"`
+- `String JAR_URL_SEPARATOR = "!/"`
+
+- `boolean isUrl(@Nullable String resourceLocation)`
+- `URL getURL(String resourceLocation)`
+- `File getFile(String resourceLocation)`
+- `File getFile(URL resourceUrl)`
+- `File getFile(URL resourceUrl, String description)`
+- `File getFile(URI resourceUri)`
+- `File getFile(URI resourceUri, String description)`
+- `boolean isFileURL(URL url)`
+- `boolean isJarURL(URL url)`
+- `boolean isJarFileURL(URL url)`
+- `URL extractJarFileURL(URL jarUrl)`
+- `URL extractArchiveURL(URL jarUrl)`
+- `URI toURI(URL url)`
+- `URI toURI(String location)`
+- `void useCachesIfNecessary(URLConnection con)`

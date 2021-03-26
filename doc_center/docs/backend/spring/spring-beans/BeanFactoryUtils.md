@@ -1,0 +1,18 @@
+
+- `boolean isFactoryDereference(@Nullable String name)`
+- `String transformedBeanName(String name)`
+- `boolean isGeneratedBeanName(@Nullable String name)`
+- `String originalBeanName(String name)`
+- `int countBeansIncludingAncestors(ListableBeanFactory lbf)`
+- `String[] beanNamesIncludingAncestors(ListableBeanFactory lbf)`
+- `String[] beanNamesForTypeIncludingAncestors(ListableBeanFactory lbf, ResolvableType type)`
+- `String[] beanNamesForTypeIncludingAncestors(ListableBeanFactory lbf, ResolvableType type, boolean includeNonSingletons, boolean allowEagerInit)`
+- `String[] beanNamesForTypeIncludingAncestors(ListableBeanFactory lbf, Class<?> type)`
+- `String[] beanNamesForTypeIncludingAncestors(ListableBeanFactory lbf, Class<?> type, boolean includeNonSingletons, boolean allowEagerInit)`
+- `String[] beanNamesForAnnotationIncludingAncestors(ListableBeanFactory lbf, Class<? extends Annotation> annotationType)`
+- `<T> Map<String, T> beansOfTypeIncludingAncestors(ListableBeanFactory lbf, Class<T> type)`
+- `<T> Map<String, T> beansOfTypeIncludingAncestors(ListableBeanFactory lbf, Class<T> type, boolean includeNonSingletons, boolean allowEagerInit)`
+- `<T> T beanOfTypeIncludingAncestors(ListableBeanFactory lbf, Class<T> type)`
+- `<T> T beanOfTypeIncludingAncestors(ListableBeanFactory lbf, Class<T> type, boolean includeNonSingletons, boolean allowEagerInit)`
+- `<T> T beanOfType(ListableBeanFactory lbf, Class<T> type)`
+- `<T> T beanOfType(ListableBeanFactory lbf, Class<T> type, boolean includeNonSingletons, boolean allowEagerInit)`

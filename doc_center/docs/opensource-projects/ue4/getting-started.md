@@ -96,3 +96,46 @@ In order to harness the functionality provided by UObject-derived types, a prepr
 
 In general, you should be using the TEXT() macro when setting string variable literals. If you do not specify the TEXT() macro, your literal will be encoded using ANSI, which is highly limited in what characters it supports. Any ANSI literals being passed into FString need to undergo a conversion to TCHAR (native Unicode encoding), so it is more efficient to use TEXT().
 
+:::tip
+The wheel Physics Bodies are never actually used for collision. Currently, the wheels use a ray casting for interacting with the world.
+:::
+
+## BehaviorTreeQuickStart
+
+<https://docs.unrealengine.com/en-US/InteractiveExperiences/ArtificialIntelligence/BehaviorTrees/BehaviorTreeQuickStart/index.html>
+
+Composites are a form of flow control and determine how **the child branches** that are connected to them execute
+
+## Reliable RPC and Disconnect
+
+Because HandleFire has the Reliable specifier as well, it is placed into a queue for reliable RPCs whenever it gets called, and it is removed from the queue when the server successfully receives it. This guarnatees that the server will definitely receive this function call. However, the queue for reliable RPCs can overflow if too many RPCs are placed into it at once without removing them, and if it does then it will force the user to **disconnect**.
+
+<https://docs.unrealengine.com/en-US/InteractiveExperiences/Networking/Actors/Properties/index.html>
+
+Actor property replication is reliable. 
+
+因为actor同步时候会根据relevance来选择，说明不用同步全部的actors，那是否可能因为网络故障导致actor destroy没收到然后后面又正常同步呢？
+
+## Timer
+
+<https://docs.unrealengine.com/en-US/InteractiveExperiences/UseTimers/index.html>
+
+```cpp
+    UWorld* World = GetWorld();
+		World->GetTimerManager().SetTimer(FiringTimer, this, &ANetworkingStudyCharacter::StopFire, FireRate, false);
+```
+
+## Replication Prioritization
+
+Each Actor has a floating point variable called NetPriority. **The higher the number, the more bandwidth that Actor receives relative to others**. An Actor with a priority of 2.0 will be updated exactly twice as frequently as an Actor with priority 1.0. The only thing that matters with priorities is their ratio; so obviously you cannot improve Unreal's network performance by increasing all of ...
+
+To avoid starvation AActor::GetNetPriority() multiplies NetPriority with the time since the Actor was last replicated.
+
+## RPC
+
+<https://docs.unrealengine.com/en-US/InteractiveExperiences/Networking/Actors/RPCs/index.html>
+
+## Stably Named Objects
+
+Actors are stably named if they were loaded directly from packages (not spawned during gameplay).
+

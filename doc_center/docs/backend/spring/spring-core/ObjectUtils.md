@@ -1,0 +1,19 @@
+
+- isCheckedException
+- isCompatibleWithThrowsClause
+- isArray
+- isEmpty
+- unwrapOptional
+- containsElement
+- containsConstant
+- caseInsensitiveValueOf
+- addObjectToArray
+- toObjectArray
+- nullSafeEquals
+- nullSafeHashCode
+- identityToString
+- getIdentityHexString
+- getDisplayString
+- nullSafeClassName
+- nullSafeToString
+- 

@@ -60,3 +60,40 @@ public Mono<Object> resolveArgument(MethodParameter parameter, BindingContext bi
 - 通过header，body，sensitive，uri等接口修改消息
 - forward并无特殊处理
 - 通过get，post，delete，put接口调用下一个EP，原理是通过WebClient
+
+```java
+private Mono<ResponseEntity<T>> exchange(RequestEntity<?> requestEntity) {
+		Type type = this.responseType;
+		RequestBodySpec builder = rest.method(requestEntity.getMethod()).uri(requestEntity.getUrl())
+				.headers(headers -> addHeaders(headers, requestEntity.getHeaders()));
+		Mono<ClientResponse> result;
+		if (requestEntity.getBody() instanceof Publisher) {
+			@SuppressWarnings("unchecked")
+			Publisher<Object> publisher = (Publisher<Object>) requestEntity.getBody();
+			result = builder.body(publisher, Object.class).exchange();
+		}
+		else if (requestEntity.getBody() != null) {
+			result = builder.body(BodyInserters.fromValue(requestEntity.getBody())).exchange();
+		}
+		else {
+			if (hasBody) {
+				result = builder.headers(headers -> addHeaders(headers, exchange.getRequest().getHeaders()))
+						.body(exchange.getRequest().getBody(), DataBuffer.class).exchange();
+			}
+			else {
+				result = builder.headers(headers -> addHeaders(headers, exchange.getRequest().getHeaders())).exchange();
+			}
+		}
+		return result.flatMap(response -> response.toEntity(ParameterizedTypeReference.forType(type)));
+	}
+```
+
+### ProductionConfigurationTests
+
+通过TestApplication的ProxyController然后到TestController来验证gateway功能。
+
+### ReactiveTests
+
+- 在handler接口用到Flux类型，比如`@RequestBody Flux<Foo> foos`
+- 在handler接口用到ServerWebExchange，然后在函数体里利用DispatcherHandler进行
+内部转发

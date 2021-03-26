@@ -43,8 +43,10 @@ and compass), speed, acceleration vector, and accumulated impact from collisions
 
 ## 术语
 - A3C: asynchronous advantage actor-critic
+- ALSM: Agent Lifecycle & State Management
 - CARLA: Car Learning to Act
-- PID: proportional-integral-derivative
+- PBVT: Path Buffers & Vehicle Tracking
+- PID controller: proportional-integral-derivative controller
 - RSS: Responsibility Sensitive Safety
 
 ## 依赖
@@ -56,6 +58,13 @@ and compass), speed, acceleration vector, and accumulated impact from collisions
 - [boost](https://dl.bintray.com/boostorg/release/1.72.0/source/)
 - [xerces-c](https://downloads.apache.org/xerces/c/3/sources/)
 
+## 编译运行
+
+使用python3.9无法安装open3d，使用python3.8时候运行spawn_npc.py时候报错
+无法找到carla下导出项，使用dir(carla)看应该导出的都没有导出，google后发现
+下面issue提到更改setuptools版本，更改后问题解决
+
+https://github.com/carla-simulator/carla/issues/3083
 
 ## 文档
 [论文 CARLA: An Open Urban Driving Simulator](http://proceedings.mlr.press/v78/dosovitskiy17a/dosovitskiy17a.pdf)

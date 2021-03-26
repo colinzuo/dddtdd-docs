@@ -12,5 +12,12 @@ slug: /backend/spring/reactive-stack/
 
 ## 培训视频
 [Do’s and Don’ts: Avoiding First-Time Reactive Programmer Mines](https://www.youtube.com/watch?v=0rnMIueRKNU)
+
 [Reactive Relational Database Connectivity with Spring](https://www.youtube.com/watch?v=xQEJFUPeQ_8)
+
 [RSocket Messaging with Spring](https://www.youtube.com/watch?v=iSSrZoGtoSE)
+
+[The Value Of Reactive Systems](https://www.youtube.com/watch?v=Y2wMPG-htpE)
+
+下面这个是基于CompleteStage的  
+[JAX RS and CDI Bike the Reactive Bridge](https://www.youtube.com/watch?v=qLXJTrBcAmM)

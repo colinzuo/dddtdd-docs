@@ -1,0 +1,50 @@
+
+- getDefaultClassLoader()
+- overrideThreadContextClassLoader(@Nullable ClassLoader classLoaderToUse)
+- forName(String name, @Nullable ClassLoader classLoader)
+- resolveClassName(String className, @Nullable ClassLoader classLoader)
+- isPresent(String className, @Nullable ClassLoader classLoader)
+- isVisible(Class<?> clazz, @Nullable ClassLoader classLoader)
+- isLoadable(Class<?> clazz, ClassLoader classLoader)
+- resolvePrimitiveClassName(@Nullable String name)
+- isPrimitiveWrapper(Class<?> clazz)
+- isPrimitiveOrWrapper(Class<?> clazz)
+- isPrimitiveArray(Class<?> clazz)
+- isPrimitiveWrapperArray(Class<?> clazz)
+- resolvePrimitiveIfNecessary(Class<?> clazz)
+- isAssignable(Class<?> lhsType, Class<?> rhsType)
+- isAssignableValue(Class<?> type, @Nullable Object value)
+- convertResourcePathToClassName(String resourcePath)
+- convertClassNameToResourcePath(String className)
+- addResourcePathToPackagePath(Class<?> clazz, String resourceName)
+- classPackageAsResourcePath(@Nullable Class<?> clazz)
+- classNamesToString
+- toClassArray
+- getAllInterfaces
+- getAllInterfacesForClass
+- getAllInterfacesAsSet
+- getAllInterfacesForClassAsSet
+- createCompositeInterface
+- determineCommonAncestor
+- isJavaLanguageInterface
+- isInnerClass
+- getUserClass
+- getDescriptiveType
+- matchesTypeName
+- getShortName
+- getShortNameAsProperty
+- getClassFileName
+- getPackageName
+- getQualifiedName
+- getQualifiedMethodName
+- hasConstructor
+- getConstructorIfAvailable
+- hasMethod
+- getMethod
+- getMethodIfAvailable
+- getMethodCountForName
+- hasAtLeastOneMethodWithName
+- getMostSpecificMethod
+- getInterfaceMethodIfPossible
+- isUserLevelMethod
+- getStaticMethod
