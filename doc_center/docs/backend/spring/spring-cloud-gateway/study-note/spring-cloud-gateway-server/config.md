@@ -6,7 +6,9 @@
 少数通过设置annotation的value来判断
 - 少数情况用于Configuration class定义
 
-判断标准为spring.cloud.gateway.filter.**COMPONENT-TYPE**.enabled是否为false
+判断标准为
+
+spring.cloud.gateway.filter.**COMPONENT-TYPE**.enabled是否为false
 
 ### ConditionalOnEnabledGlobalFilter
 

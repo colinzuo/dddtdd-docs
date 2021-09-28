@@ -1,0 +1,10 @@
+
+首先通过Autowired收集`Customizer<ReactiveResilience4JCircuitBreakerFactory>`
+
+## ReactiveResilience4JCircuitBreakerFactory reactiveResilience4JCircuitBreakerFactory
+
+创建ReactiveResilience4JCircuitBreakerFactory，并customize
+
+## MicrometerReactiveResilience4JCustomizerConfiguration
+
+注册Meter

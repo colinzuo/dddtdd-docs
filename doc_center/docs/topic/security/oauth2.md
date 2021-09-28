@@ -2,6 +2,8 @@
 title: OAuth2
 ---
 
+<https://oauth.net/2/>
+
 ## spring oauth2
 
 [spring-boot-oauth2](https://spring.io/guides/tutorials/spring-boot-oauth2/)

@@ -2,6 +2,231 @@
 title: 上手指南
 ---
 
+## IntroductionToCPP
+
+<https://docs.unrealengine.com/en-US/ProgrammingAndScripting/ProgrammingWithCPP/IntroductionToCPP/index.html>
+
+In order to support per-instance designer-set properties, values are also loaded from the instance data for a given object. This data is applied after the constructor. You can create defaults based off of designer-set values by hooking into the PostInitProperties() call chain. 
+
+The UFUNCTION() macro handles exposing the C++ function to the reflection system. The BlueprintCallable option exposes it to the Blueprint virtual machine.
+
+`UFUNCTION(BlueprintImplementableEvent, Category="Damage")`
+This function is called like any other C++ function. Under the covers, the Unreal Engine generates a base C++ function implementation that understands how to call into the Blueprint VM. This is commonly referred to as a Thunk.
+
+What if you want to provide a C++ default implementation
+`UFUNCTION(BlueprintNativeEvent, Category="Damage")`
+
+There are 4 main class types that you derive from for the majority of gameplay classes. They are UObject, AActor, UActorComponent, and UStruct.
+
+Typical use of classes that are created outside of the UObject hierarchy are: integrating 3rd party libraries, wrapping of OS specific features, and so on.
+
+Actors are either placed in a level by a designer or created at runtime via gameplay systems. All objects that can be placed into a level extend from this class.
+
+Actors have their own behaviors (specialization through inheritance), but they also act as containers for a hierarchy of Actor Components (specialization through composition). This is done through the Actor's RootComponent member, which contains a single USceneComponent that, in turn, can contain many others. Before an Actor can be placed in a level, it must contain at least one Scene Component, from which the Actor will draw its translation, rotation, and scale.
+
+Object iterators are a very useful tool to iterate over all instances of a particular UObject type and its subclasses.
+
+`for (TObjectIterator<UMyClass> It; It; ++It)`
+
+Actor iterators work in much the same way as object iterators, but only work for objects that derive from AActor. 
+
+```
+UWorld* World = MyPC->GetWorld();
+
+for (TActorIterator<AEnemy> It(World); It; ++It)
+```
+
+UStructs, as mentioned earlier, are meant to be a lightweight version of a UObject. As such, UStructs cannot be garbage collected. If you must use dynamic instances of UStructs, you may want to use smart pointers instead
+
+### Class Naming Prefixes
+
+- Classes derived from Actor prefixed with A, such as AController
+- Classes derived from Object are prefixed with U, such as UComponent
+- Enums are prefixed with E, such as EFortificationType
+- Interface classes are usually prefixed with I, such as IAbilitySystemInterface
+- Template classes are prefixed by T, such as TArray
+- Classes that derive from SWidget (Slate UI) are prefixed by S, such as SButton
+- Everything else is prefixed by the letter F, such as FVector
+
+### Numeric Types
+
+- int8/uint8: 8-bit signed/unsigned integer
+- int16/uint16: 16-bit signed/unsigned integer
+- int32/uint32: 32-bit signed/unsigned integer
+- int64/uint64: 64-bit signed/unsigned integer
+
+### Strings
+
+- FString is a mutable string, analogous to std::string.
+`FString MyStr = TEXT("Hello, Unreal 4!")`
+- FText is similar to FString, but it is meant for localized text  
+`FText MyText = NSLOCTEXT("Game UI", "Health Warning Message", "Low Health!")`  
+`FText MyText = LOCTEXT("Health Warning Message", "Low Health!")`
+- An FName stores a commonly recurring string as an identifier in order to save memory and CPU time when comparing them
+- The TCHAR type is used as a way of storing characters independent of the character set being used, which may differ between platforms. Under the hood, UE4 strings use TCHAR arrays to store data in the UTF-16 encoding. You can access the raw data by using the overloaded dereference operator, which returns TCHAR.
+`FString Str1 = TEXT("World");`
+`FString Str2 = FString::Printf(TEXT("Hello, %s! You have %i points."), *Str1, Val1);`
+
+### Containers
+
+- TArray
+```
+int32 ArraySize = ActorArray.Num();
+
+AActor* FirstActor = ActorArray[Index];
+
+ActorArray.Add(NewActor);
+
+ActorArray.AddUnique(NewActor);
+
+ActorArray.Remove(NewActor);
+
+ActorArray.RemoveAt(Index);
+
+ActorArray.RemoveAtSwap(Index);
+
+ActorArray.Empty();
+```
+- TMap
+```
+TMap<FIntPoint, FPiece> Data;
+
+Data.Contains(Position);
+
+Data[Position];
+
+Data.Add(Position, NewPiece);
+
+Data.Remove(OldPosition);
+
+Data.Empty();
+```
+
+- TSet
+```
+int32 Size = ActorSet.Num();
+
+ActorSet.Add(NewActor);
+
+if (ActorSet.Contains(NewActor))
+
+ActorSet.Remove(NewActor);
+
+ActorSet.Empty();
+```
+
+- Container Iterators
+```
+for (auto EnemyIterator = EnemySet.CreateIterator(); EnemyIterator; ++EnemyIterator)
+
+AEnemy* Enemy = *EnemyIterator;
+
+EnemyIterator.RemoveCurrent();
+
+EnemyIterator += Offset;
+EnemyIterator -= Offset;
+
+int32 Index = EnemyIterator.GetIndex();
+
+EnemyIterator.Reset();
+```
+
+- For-each Loop
+```
+for (AActor* OneActor : ActorArray)
+
+for (auto& KVP : NameToActorMap)
+{
+    FName Name = KVP.Key;
+    AActor* Actor = KVP.Value;
+```
+
+### Class Specifiers
+
+- Blueprintable:  Exposes this class as an acceptable base class for creating Blueprints. The default is NotBlueprintable
+- BlueprintType:  Exposes this class as a type that can be used for variables in Blueprints.
+
+### Function Specifiers
+
+- BlueprintPure:  means the function does not affect the owning object in any way and thus creates a node without Exec pins
+- BlueprintCallable:  makes a function which can be executed in Blueprints - Thus it has Exec pins
+
+### Constructor Format
+
+This constructor initializes the Class Default Object (CDO), which is the master copy on which future instances of the class are based. There is also a secondary constructor that supports a special property-altering structure:
+
+#### Asset References
+```
+    // Structure to hold one-time initialization
+    struct FConstructorStatics
+    {
+        ConstructorHelpers::FObjectFinder<UStaticMesh> Object0;
+        FConstructorStatics()
+        : Object0(TEXT("StaticMesh'/Game/UT3/Pickups/Pickups/Health_Large/Mesh/S_Pickups_Base_Health_Large.S_Pickups_Base_Health_Large'"))
+        {
+        }
+    };
+    static FConstructorStatics ConstructorStatics;
+
+    // Property initialization
+
+    StaticMesh = ConstructorStatics.Object0.Object;
+```
+
+#### Class References
+```
+    // Structure to hold one-time initialization
+    static FClassFinder<UNavigationMeshBase> ClassFinder(TEXT("class'Engine.NavigationMeshBase'"));
+    if (ClassFinder.Succeeded())
+    {
+        NavMeshClass = ClassFinder.Class;
+    }
+    else
+    {
+        NavMeshClass = nullptr;
+    }
+
+or 
+
+NavMeshClass = UNavigationMeshBase::StaticClass();
+```
+
+#### Components and Sub-Objects
+```
+    UPROPERTY()
+    UWindPointSourceComponent* WindPointSource;
+
+    WindPointSource = CreateDefaultSubobject<UWindPointSourceComponent>(TEXT("WindPointSourceComponent0"));
+
+    // Set our new component as the RootComponent of this actor, or attach it to the root if one already exists.
+    if (RootComponent == nullptr)
+    {
+        RootComponent = WindPointSource;
+    }
+    else
+    {
+        WindPointSource->AttachTo(RootComponent);
+    }
+```
+
+### Include-What-You-Use
+
+<https://docs.unrealengine.com/en-US/ProductionPipelines/BuildTools/UnrealBuildTool/IWYU/index.html>
+
+- All header files include their required dependencies  
+
+There is a CoreMinimal header file containing a set of ubiquitous types (including FString, FName, TArray, etc.) from UE4's Core programming environment.
+
+### ProgrammingWithCPP Basics
+
+<https://docs.unrealengine.com/en-US/ProgrammingAndScripting/ProgrammingWithCPP/Basics/index.html>
+
+Functions and classes that need to be accessed outside of their module must be exposed via the `*_API` macros.
+
+### Delegates
+
+The delegate system understands certain types of objects, and additional features are enabled when using these objects. If you bind a delegate to a member of a UObject or shared pointer class, the delegate system can keep a weak reference to the object, so that if the object gets destroyed out from underneath the delegate, you will be able to handle these cases by calling **IsBound** or **ExecuteIfBound** functions. Note the special binding syntax for the various types of supported objects.
+
 ## Geometry Brush Actors
 
 <https://docs.unrealengine.com/en-US/Basics/Actors/Brushes/index.html>

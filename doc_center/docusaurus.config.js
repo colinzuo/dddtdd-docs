@@ -5,6 +5,9 @@ if (isProd) {
   baseUrl = '/dddtdd-docs/'
 }
 
+const lightCodeTheme = require('prism-react-renderer/themes/github');
+const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+
 module.exports = {
   title: "文档中心",
   tagline: '部署 自动化测试 前端 后端 中间件',
@@ -18,6 +21,8 @@ module.exports = {
   themeConfig: {
     prism: {
       additionalLanguages: ['java'],
+      theme: lightCodeTheme,
+      darkTheme: darkCodeTheme,
     },
     hideableSidebar: true,
     navbar: {

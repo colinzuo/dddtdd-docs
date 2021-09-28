@@ -1,0 +1,12 @@
+
+- `Object getTarget()`
+- `Map<String, Object> getModel()`
+- `Object getRawFieldValue(String field)`
+- `PropertyEditor findEditor(@Nullable String field, @Nullable Class<?> valueType)`
+- `PropertyEditorRegistry getPropertyEditorRegistry()`
+- `String[] resolveMessageCodes(String errorCode)`
+- `String[] resolveMessageCodes(String errorCode, String field)`
+- `void addError(ObjectError error)`
+- `void recordFieldValue(String field, Class<?> type, @Nullable Object value)`
+- `void recordSuppressedField(String field)`
+- `String[] getSuppressedFields()`
