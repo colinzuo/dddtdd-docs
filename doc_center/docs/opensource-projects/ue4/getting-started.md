@@ -1,5 +1,6 @@
 ---
 title: 上手指南
+sidebar_position: 1
 ---
 
 ## IntroductionToCPP
