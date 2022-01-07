@@ -1,6 +1,6 @@
 ---
 title: 插件
-sidebar_position: 4
+sidebar_position: 200
 ---
 
 <https://flutter.dev/docs/development/packages-and-plugins/using-packages>

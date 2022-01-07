@@ -3,26 +3,34 @@
 
 <https://github.com/flutter/gallery>
 
-## _ModelBindingScope extends InheritedWidget
+## ModelBinding
+
+### _ModelBindingState
+
+提供updateModel接口
+
+### _ModelBindingScope extends InheritedWidget
 
 通过InheritedWidget提供GalleryOptions
 
 ## Builder
 
-通过Builder提供context
+通过Builder提供context，进而让ModelBinding暴露GalleryOptions
 
 ## MaterialApp
 
 配置
 - restorationScopeId: 使能restoration
 
+从GalleryOptions提取
+
 - themeMode
 - theme
 - darkTheme
+- locale
 
 - localizationsDelegates
 - supportedLocales
-- locale
 - localeResolutionCallback
 
 - initialRoute
@@ -64,6 +72,8 @@
 ```
 
 ## Backdrop
+
+负责显示homePage和settingsPage
 
 ```dart
     _settingsPage = widget.settingsPage ??

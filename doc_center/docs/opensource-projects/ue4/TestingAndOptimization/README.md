@@ -39,6 +39,12 @@ OnTestStart触发，然后使用者使用蓝图来驱动流程并检查，按照
 
 ![TestsAndResultsPanels](./files/TestsAndResultsPanels.png)
 
+### 培训视频
+
+[Using Blueprint Interfaces to Reduce Coupling in Unreal Engine 4][]
+
+[Automated functional testing in UE4][]
+
 ## 自研UE测试
 
 外部测试执行器通过websocket与UE自研插件连接，然后发送控制消息驱动，发送查询消息
@@ -52,3 +58,7 @@ OnTestStart触发，然后使用者使用蓝图来驱动流程并检查，按照
 - Functional测试的case是写在蓝图里的，为了模块测试，依赖模块一般通过mock方式解耦，效率比较高
 - 自研的case是在外部写的，但需要UE这边提供需要的控制和查询能力，各个模块都是实际的，非mock，
 可以说是接近完全真实完整场景测试，但不同模块有依赖，可能效率会低
+
+
+[Using Blueprint Interfaces to Reduce Coupling in Unreal Engine 4]: https://www.youtube.com/watch?v=JkJLeG8cErc&list=PLL4s8QTahRc11XP1Zn21F0v4CVD3abVKI&index=18
+[Automated functional testing in UE4]: https://www.youtube.com/watch?v=HscEt4As0_g
