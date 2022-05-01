@@ -10,7 +10,53 @@ title: 搭建Vue工程
 vue create proj-name
 ```
 
+.vuerc对应vue cli preset配置如下
+
+```json
+{
+  "useConfigFiles": true,
+  "plugins": {
+    "@vue/cli-plugin-babel": {},
+    "@vue/cli-plugin-router": {
+      "historyMode": false
+    },
+    "@vue/cli-plugin-vuex": {},
+    "@vue/cli-plugin-eslint": {
+      "config": "base",
+      "lintOn": [
+        "save"
+      ]
+    },
+    "@vue/cli-plugin-unit-jest": {},
+    "@vue/cli-plugin-e2e-cypress": {}
+  },
+  "vueVersion": "2",
+  "cssPreprocessor": "dart-sass"
+}
+```
+
 ## 参照vue-admin-template修改
+
+### 添加jsconfig.json
+
+当有这个文件时vscode会将对应目录认定为js项目，从而能够正确识别含alias的
+文件路径，比如`@/components/HelloWorld.vue`
+
+<https://code.visualstudio.com/docs/languages/jsconfig>
+
+### 添加vue.config.js
+
+- 配置publicPath，后期可以通过nginx来部署到subpath
+- 配置devServer，proxy到后端
+- 配置webpack alias，可以把常用目录做alias
+
+### 添加vuetify
+
+```bash
+vue add vuetify
+```
+
+## vue-admin-template相对vue cli的修改
 
 [vue-admin-template][]
 
@@ -20,8 +66,6 @@ vue create proj-name
   相对vue cli生成的版本，[vue-admin-template]的增加了很多rules
 + 配置babel.config.js
   在development环境下使用dynamic-import-node插件，将动态import改为静态require
-+ 添加jsconfig.json
-  当有这个文件时vscode会将对应目录认定为js项目
 + 修改package.json
   - 添加script脚本svgo，用于svg优化
   - 添加dependencies，axios用于rest请求，element-ui用于ui component，path-to-regexp用于在breadcrumb组件中生成完整路由
