@@ -4,7 +4,7 @@
 set -e
 
 # build
-yarn build
+npm run builds
 
 # navigate into the build output directory
 cd build
