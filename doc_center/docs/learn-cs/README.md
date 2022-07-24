@@ -14,6 +14,14 @@ title: 学习CS介绍
 
 ## 工具
 
+### 远程桌面
+
+推荐teamviewer
+
+<https://www.teamviewer.cn/cn/>
+
+可远程连接过来帮助，比如软件运行有问题，可以远程连接帮助调试
+
 ### IDE
 
 推荐 IntelliJ IDEA
