@@ -1,6 +1,5 @@
 ---
-title: Carla介绍
-slug: /opensource-projects/carla/
+title: Carla
 ---
 
 CARLA provides open digital assets(urban layouts, buildings, vehicles)

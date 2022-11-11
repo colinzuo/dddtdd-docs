@@ -4,11 +4,13 @@ title: TestingAndOptimization
 
 ## UE原生测试
 
-<https://docs.unrealengine.com/4.27/en-US/TestingAndOptimization/>
+<https://docs.unrealengine.com/5.0/en-US/testing-and-optimizing-your-content//>
 
 UE支持的测试大体分两类
 
 ### 普通C++的单元测试
+
+<https://docs.unrealengine.com/5.0/en-US/automation-technical-guide/>
 
 普通C++的单元测试，比如Datetime类的操作，不涉及
 UObject系统，也就是不涉及蓝图等
@@ -21,6 +23,8 @@ UObject系统，也就是不涉及蓝图等
 ```
 
 ### Functional测试
+
+<https://docs.unrealengine.com/5.0/en-US/functional-testing-in-unreal-engine/>
 
 Functional测试，是通过蓝图来测试，在Level蓝图中通过特定事件
 OnTestStart触发，然后使用者使用蓝图来驱动流程并检查，按照检查
@@ -43,6 +47,8 @@ OnTestStart触发，然后使用者使用蓝图来驱动流程并检查，按照
 [Using Blueprint Interfaces to Reduce Coupling in Unreal Engine 4][]
 
 [Automated functional testing in UE4][]
+
+[Playtest While You SLEEP! Automated Testing in Unreal Engine 4](https://www.youtube.com/watch?v=528XSNTfxX8)
 
 ## 自研UE测试
 
