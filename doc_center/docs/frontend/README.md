@@ -1,6 +1,6 @@
 ---
+sidebar_position: 1
 title: 前端介绍
-slug: /frontend
 ---
 
 前端主要有三大框架  
