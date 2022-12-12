@@ -477,50 +477,6 @@ class ENGINE_API UWorld final : public UObject, public FNetworkNotify
 	const TSet<TObjectPtr<ULevel>>& GetLevels() const { return Levels; }
 
 	/**
-	 *  Trace a ray against the world using object types and return the first blocking hit
-	 *  @param  OutHit          First blocking hit found
-	 *  @param  Start           Start location of the ray
-	 *  @param  End             End location of the ray
-	 *	@param	ObjectQueryParams	List of object types it's looking for
-	 *  @param  Params          Additional parameters used for the trace
-	 *  @return TRUE if any hit is found
-	 */
-	bool LineTraceSingleByObjectType(struct FHitResult& OutHit,const FVector& Start,const FVector& End,const FCollisionObjectQueryParams& ObjectQueryParams, const FCollisionQueryParams& Params = FCollisionQueryParams::DefaultQueryParam) const;
-
-	/**
-	 *  Sweep a shape against the world and return the first blocking hit using object types
-	 *  @param  OutHit          First blocking hit found
-	 *  @param  Start           Start location of the shape
-	 *  @param  End             End location of the shape
-	 *	@param	ObjectQueryParams	List of object types it's looking for
-	 *  @param	CollisionShape	CollisionShape - supports Box, Sphere, Capsule
-	 *  @param  Params          Additional parameters used for the trace
-	 *  @return TRUE if any hit is found
-	 */
-	bool SweepSingleByObjectType(struct FHitResult& OutHit, const FVector& Start, const FVector& End, const FQuat& Rot, const FCollisionObjectQueryParams& ObjectQueryParams, const FCollisionShape& CollisionShape, const FCollisionQueryParams& Params = FCollisionQueryParams::DefaultQueryParam) const;
-
-	/**
-	 * Interface for Async. Pretty much same parameter set except you can optional set delegate to be called when execution is completed and you can set UserData if you'd like
-	 * if no delegate, you can query trace data using QueryTraceData or QueryOverlapData
-	 * the data is available only in the next frame after request is made - in other words, if request is made in frame X, you can get the result in frame (X+1)
-	 *
-	 *	@param	InTraceType		Indicates if you want multiple results, single hit result, or just yes/no (no hit information)
-	 *  @param  Start           Start location of the ray
-	 *  @param  End             End location of the ray
-	 *	@param	ObjectQueryParams	List of object types it's looking for
-	 *  @param  Params          Additional parameters used for the trace
-	 *	@param	InDeleagte		Delegate function to be called - to see example, search FTraceDelegate
-	 *							Example can be void MyActor::TraceDone(const FTraceHandle& TraceHandle, FTraceDatum & TraceData)
-	 *							Before sending to the function, 
-	 *						
-	 *							FTraceDelegate TraceDelegate;
-	 *							TraceDelegate.BindRaw(this, &MyActor::TraceDone);
-	 * 
-	 *	@param	UserData		UserData
-	 */ 
-	FTraceHandle	AsyncLineTraceByObjectType(EAsyncTraceType InTraceType, const FVector& Start,const FVector& End, const FCollisionObjectQueryParams& ObjectQueryParams, const FCollisionQueryParams& Params = FCollisionQueryParams::DefaultQueryParam, FTraceDelegate * InDelegate=NULL, uint32 UserData = 0 );
-
-	/**
 	 * Returns the AWorldSettings actor associated with this world.
 	 *
 	 * @return AWorldSettings actor associated with this world

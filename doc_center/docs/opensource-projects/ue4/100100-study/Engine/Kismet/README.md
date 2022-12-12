@@ -18,15 +18,6 @@ class ENGINE_API UGameplayStatics : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintCallable, Category="Actor",  meta=(WorldContext="WorldContextObject", DeterminesOutputType="ActorClass", DynamicOutputParam="OutActors"))
 	static void GetAllActorsOfClass(const UObject* WorldContextObject, TSubclassOf<AActor> ActorClass, TArray<AActor*>& OutActors);
 
-	/** 
-	 *	Find all Actors in the world with the specified interface.
-	 *	This is a slow operation, use with caution e.g. do not use every frame.
-	 *	@param	Interface	Interface to find. Must be specified or result array will be empty.
-	 *	@param	OutActors	Output array of Actors of the specified interface.
-	 */
-	UFUNCTION(BlueprintCallable, Category="Actor",  meta=(WorldContext="WorldContextObject", DeterminesOutputType="Interface", DynamicOutputParam="OutActors"))
-	static void GetAllActorsWithInterface(const UObject* WorldContextObject, TSubclassOf<UInterface> Interface, TArray<AActor*>& OutActors);
-
 	/**
 	 *	Find all Actors in the world with the specified tag.
 	 *	This is a slow operation, use with caution e.g. do not use every frame.
@@ -36,6 +27,16 @@ class ENGINE_API UGameplayStatics : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintCallable, Category="Actor",  meta=(WorldContext="WorldContextObject"))
 	static void GetAllActorsWithTag(const UObject* WorldContextObject, FName Tag, TArray<AActor*>& OutActors);
 
+	/**
+	 *	Returns an Actor nearest to Origin from ActorsToCheck array.
+	 *	@param	Origin			World Location from which the distance is measured.
+	 *	@param	ActorsToCheck	Array of Actors to examine and return Actor nearest to Origin.
+	 *	@param	Distance	Distance from Origin to the returned Actor.
+	 *	@return				Nearest Actor.
+	 */
+	UFUNCTION(BlueprintPure, Category = "Actor")
+	static AActor* FindNearestActor(FVector Origin, const TArray<AActor*>& ActorsToCheck, float& Distance);
+	
 	/** Returns the game instance object  */
 	UFUNCTION(BlueprintPure, Category="Game", meta=(WorldContext="WorldContextObject"))
 	static class UGameInstance* GetGameInstance(const UObject* WorldContextObject);
@@ -140,3 +141,105 @@ class ENGINE_API UGameplayStatics : public UBlueprintFunctionLibrary
   
                         
 ```
+
+## KismetMathLibrary.h
+
+```c++
+```
+
+## KismetSystemLibrary.h
+
+```c++
+	/** Set an int32 property by name */
+	UFUNCTION(BlueprintCallable, meta=(BlueprintInternalUseOnly = "true"))
+	static void SetIntPropertyByName(UObject* Object, FName PropertyName, int32 Value);
+
+	/** Set a STRING property by name */
+	UFUNCTION(BlueprintCallable, meta=(BlueprintInternalUseOnly = "true", AutoCreateRefTerm = "Value" ))
+	static void SetStringPropertyByName(UObject* Object, FName PropertyName, const FString& Value);
+
+	/**
+	 * Returns an array of actors that overlap the given axis-aligned box.
+	 * @param WorldContext	World context
+	 * @param BoxPos		Center of box.
+	 * @param BoxExtent		Extents of box.
+	 * @param Filter		Option to restrict results to only static or only dynamic.  For efficiency.
+	 * @param ClassFilter	If set, will only return results of this class or subclasses of it.
+	 * @param ActorsToIgnore		Ignore these actors in the list
+	 * @param OutActors		Returned array of actors. Unsorted.
+	 * @return				true if there was an overlap that passed the filters, false otherwise.
+	 */
+	UFUNCTION(BlueprintCallable, Category="Collision", meta=(WorldContext="WorldContextObject", AutoCreateRefTerm="ActorsToIgnore", DisplayName="Box Overlap Actors"))
+	static bool BoxOverlapActors(const UObject* WorldContextObject, const FVector BoxPos, FVector BoxExtent, const TArray<TEnumAsByte<EObjectTypeQuery> > & ObjectTypes, UClass* ActorClassFilter, const TArray<AActor*>& ActorsToIgnore, TArray<class AActor*>& OutActors);
+
+	/**
+	 * Does a collision trace along the given line and returns the first blocking hit encountered.
+	 * This trace finds the objects that RESPONDS to the given TraceChannel
+	 * 
+	 * @param WorldContext	World context
+	 * @param Start			Start of line segment.
+	 * @param End			End of line segment.
+	 * @param TraceChannel	
+	 * @param bTraceComplex	True to test against complex collision, false to test against simplified collision.
+	 * @param OutHit		Properties of the trace hit.
+	 * @return				True if there was a hit, false otherwise.
+	 */
+	UFUNCTION(BlueprintCallable, Category="Collision", meta=(bIgnoreSelf="true", WorldContext="WorldContextObject", AutoCreateRefTerm="ActorsToIgnore", DisplayName="Line Trace By Channel", AdvancedDisplay="TraceColor,TraceHitColor,DrawTime", Keywords="raycast"))
+	static bool LineTraceSingle(const UObject* WorldContextObject, const FVector Start, const FVector End, ETraceTypeQuery TraceChannel, bool bTraceComplex, const TArray<AActor*>& ActorsToIgnore, EDrawDebugTrace::Type DrawDebugType, FHitResult& OutHit, bool bIgnoreSelf, FLinearColor TraceColor = FLinearColor::Red, FLinearColor TraceHitColor = FLinearColor::Green, float DrawTime = 5.0f);
+	
+	/**
+	 * Does a collision trace along the given line and returns all hits encountered up to and including the first blocking hit.
+	 * This trace finds the objects that RESPOND to the given TraceChannel
+	 * 
+	 * @param WorldContext	World context
+	 * @param Start			Start of line segment.
+	 * @param End			End of line segment.
+	 * @param TraceChannel	The channel to trace
+	 * @param bTraceComplex	True to test against complex collision, false to test against simplified collision.
+	 * @param OutHit		Properties of the trace hit.
+	 * @return				True if there was a blocking hit, false otherwise.
+	 */
+	UFUNCTION(BlueprintCallable, Category="Collision", meta=(bIgnoreSelf="true", WorldContext="WorldContextObject", AutoCreateRefTerm="ActorsToIgnore", DisplayName = "Multi Line Trace By Channel", AdvancedDisplay="TraceColor,TraceHitColor,DrawTime", Keywords="raycast"))
+	static bool LineTraceMulti(const UObject* WorldContextObject, const FVector Start, const FVector End, ETraceTypeQuery TraceChannel, bool bTraceComplex, const TArray<AActor*>& ActorsToIgnore, EDrawDebugTrace::Type DrawDebugType, TArray<FHitResult>& OutHits, bool bIgnoreSelf, FLinearColor TraceColor = FLinearColor::Red, FLinearColor TraceHitColor = FLinearColor::Green, float DrawTime = 5.0f);
+
+	/**
+	 * Does a collision trace along the given line and returns the first hit encountered.
+	 * This only finds objects that are of a type specified by ObjectTypes.
+	 * 
+	 * @param WorldContext	World context
+	 * @param Start			Start of line segment.
+	 * @param End			End of line segment.
+	 * @param ObjectTypes	Array of Object Types to trace 
+	 * @param bTraceComplex	True to test against complex collision, false to test against simplified collision.
+	 * @param OutHit		Properties of the trace hit.
+	 * @return				True if there was a hit, false otherwise.
+	 */
+	UFUNCTION(BlueprintCallable, Category="Collision", meta=(bIgnoreSelf="true", WorldContext="WorldContextObject", AutoCreateRefTerm="ActorsToIgnore", DisplayName = "Line Trace For Objects", AdvancedDisplay="TraceColor,TraceHitColor,DrawTime", Keywords="raycast"))
+	static bool LineTraceSingleForObjects(const UObject* WorldContextObject, const FVector Start, const FVector End, const TArray<TEnumAsByte<EObjectTypeQuery> > & ObjectTypes, bool bTraceComplex, const TArray<AActor*>& ActorsToIgnore, EDrawDebugTrace::Type DrawDebugType, FHitResult& OutHit, bool bIgnoreSelf, FLinearColor TraceColor = FLinearColor::Red, FLinearColor TraceHitColor = FLinearColor::Green, float DrawTime = 5.0f );
+	
+	/**
+	 * Does a collision trace along the given line and returns all hits encountered.
+	 * This only finds objects that are of a type specified by ObjectTypes.
+	 * 
+	 * @param WorldContext	World context
+	 * @param Start			Start of line segment.
+	 * @param End			End of line segment.
+	 * @param ObjectTypes	Array of Object Types to trace 
+	 * @param bTraceComplex	True to test against complex collision, false to test against simplified collision.
+	 * @param OutHit		Properties of the trace hit.
+	 * @return				True if there was a hit, false otherwise.
+	 */
+	UFUNCTION(BlueprintCallable, Category="Collision", meta=(bIgnoreSelf="true", WorldContext="WorldContextObject", AutoCreateRefTerm="ActorsToIgnore", DisplayName = "Multi Line Trace For Objects", AdvancedDisplay="TraceColor,TraceHitColor,DrawTime", Keywords="raycast"))
+	static bool LineTraceMultiForObjects(const UObject* WorldContextObject, const FVector Start, const FVector End, const TArray<TEnumAsByte<EObjectTypeQuery> > & ObjectTypes, bool bTraceComplex, const TArray<AActor*>& ActorsToIgnore, EDrawDebugTrace::Type DrawDebugType, TArray<FHitResult>& OutHits, bool bIgnoreSelf, FLinearColor TraceColor = FLinearColor::Red, FLinearColor TraceHitColor = FLinearColor::Green, float DrawTime = 5.0f);
+
+	/** Draw a debug line */
+	UFUNCTION(BlueprintCallable, Category="Rendering|Debug", meta=(WorldContext="WorldContextObject", DevelopmentOnly))
+	static void DrawDebugLine(const UObject* WorldContextObject, const FVector LineStart, const FVector LineEnd, FLinearColor LineColor, float Duration=0.f, float Thickness = 0.f);
+
+	/** Draw a debug box */
+	UFUNCTION(BlueprintCallable, Category="Rendering|Debug", meta=(WorldContext="WorldContextObject", DevelopmentOnly))
+	static void DrawDebugBox(const UObject* WorldContextObject, const FVector Center, FVector Extent, FLinearColor LineColor, const FRotator Rotation=FRotator::ZeroRotator, float Duration=0.f, float Thickness = 0.f);
+
+
+```
+

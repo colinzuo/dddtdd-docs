@@ -140,6 +140,37 @@ class ENGINE_API AActor : public UObject
 	FVector K2_GetActorLocation() const;
 
 	/** 
+	 * Move the Actor to the specified location.
+	 * @param NewLocation	The new location to move the Actor to.
+	 * @param bSweep		Whether we sweep to the destination location, triggering overlaps along the way and stopping short of the target if blocked by something.
+	 *						Only the root component is swept and checked for blocking collision, child components move without sweeping. If collision is off, this has no effect.
+	 * @param bTeleport		Whether we teleport the physics state (if physics collision is enabled for this object).
+	 *						If true, physics velocity for this object is unchanged (so ragdoll parts are not affected by change in location).
+	 *						If false, physics velocity is updated based on the change in position (affecting ragdoll parts).
+	 *						If CCD is on and not teleporting, this will affect objects along the entire swept volume.
+	 * @param SweepHitResult	The hit result from the move if swept.
+	 * @return	Whether the location was successfully set (if not swept), or whether movement occurred at all (if swept).
+	 */
+	UFUNCTION(BlueprintCallable, meta=(DisplayName = "Set Actor Location", ScriptName = "SetActorLocation", Keywords="position"), Category="Transformation")
+	bool K2_SetActorLocation(FVector NewLocation, bool bSweep, FHitResult& SweepHitResult, bool bTeleport);
+
+	/** Returns rotation of the RootComponent of this Actor. */
+	UFUNCTION(BlueprintCallable, meta=(DisplayName = "Get Actor Rotation", ScriptName = "GetActorRotation"), Category="Transformation")
+	FRotator K2_GetActorRotation() const;
+
+	/** Get the forward (X) vector (length 1.0) from this Actor, in world space.  */
+	UFUNCTION(BlueprintCallable, Category = "Transformation")
+	FVector GetActorForwardVector() const;
+
+	/** Get the up (Z) vector (length 1.0) from this Actor, in world space.  */
+	UFUNCTION(BlueprintCallable, Category = "Transformation")
+	FVector GetActorUpVector() const;
+
+	/** Get the right (Y) vector (length 1.0) from this Actor, in world space.  */
+	UFUNCTION(BlueprintCallable, Category = "Transformation")
+	FVector GetActorRightVector() const;
+
+	/** 
 	 * Set the Actor's rotation instantly to the specified rotation.
 	 * 
 	 * @param	NewRotation	The new rotation for the Actor.
@@ -150,6 +181,34 @@ class ENGINE_API AActor : public UObject
 	 */
 	UFUNCTION(BlueprintCallable, meta=(DisplayName = "Set Actor Rotation", ScriptName = "SetActorRotation"), Category="Transformation")
 	bool K2_SetActorRotation(FRotator NewRotation, bool bTeleportPhysics);
+
+		/** Set the Actor's world-space scale. */
+	UFUNCTION(BlueprintCallable, Category="Transformation")
+	void SetActorScale3D(FVector NewScale3D);
+
+	/** Returns the Actor's world-space scale. */
+	UFUNCTION(BlueprintCallable, Category="Transformation")
+	FVector GetActorScale3D() const;
+
+	/** Returns the distance from this Actor to OtherActor. */
+	UFUNCTION(BlueprintCallable, Category = "Transformation")
+	float GetDistanceTo(const AActor* OtherActor) const;
+
+	/** Returns the squared distance from this Actor to OtherActor. */
+	UFUNCTION(BlueprintCallable, Category = "Transformation")
+	float GetSquaredDistanceTo(const AActor* OtherActor) const;
+
+	/** Returns the distance from this Actor to OtherActor, ignoring Z. */
+	UFUNCTION(BlueprintCallable, Category = "Transformation")
+	float GetHorizontalDistanceTo(const AActor* OtherActor) const;
+
+	/** Returns the squared distance from this Actor to OtherActor, ignoring Z. */
+	UFUNCTION(BlueprintCallable, Category = "Transformation")
+	float GetSquaredHorizontalDistanceTo(const AActor* OtherActor) const;
+
+	/** Returns the distance from this Actor to OtherActor, ignoring XY. */
+	UFUNCTION(BlueprintCallable, Category = "Transformation")
+	float GetVerticalDistanceTo(const AActor* OtherActor) const;
 
 	/**
 	 * Adds a delta to the location of this actor in world space.
@@ -167,11 +226,55 @@ class ENGINE_API AActor : public UObject
 	void K2_AddActorWorldOffset(FVector DeltaLocation, bool bSweep, FHitResult& SweepHitResult, bool bTeleport);
 
 	/**
+	 * Adds a delta to the rotation of this actor in world space.
+	 * 
+	 * @param DeltaRotation		The change in rotation.
+	 * @param bSweep			Whether to sweep to the target rotation (not currently supported for rotation).
+	 * @param bTeleport			Whether we teleport the physics state (if physics collision is enabled for this object).
+	 *							If true, physics velocity for this object is unchanged (so ragdoll parts are not affected by change in location).
+	 *							If false, physics velocity is updated based on the change in position (affecting ragdoll parts).
+	 *							If CCD is on and not teleporting, this will affect objects along the entire swept volume.
+	 * @param SweepHitResult	The hit result from the move if swept.
+	 */
+	UFUNCTION(BlueprintCallable, Category="Transformation", meta=(DisplayName="Add Actor World Rotation", ScriptName="AddActorWorldRotation", AdvancedDisplay="bSweep,SweepHitResult,bTeleport"))
+	void K2_AddActorWorldRotation(FRotator DeltaRotation, bool bSweep, FHitResult& SweepHitResult, bool bTeleport);
+
+	/** 
+	 * Adds a delta to the location of this component in its local reference frame.
+	 * @param DelatLocation		The change in location in local space.
+	 * @param bSweep			Whether we sweep to the destination location, triggering overlaps along the way and stopping short of the target if blocked by something.
+	 *							Only the root component is swept and checked for blocking collision, child components move without sweeping. If collision is off, this has no effect.
+	 * @param bTeleport			Whether we teleport the physics state (if physics collision is enabled for this object).
+	 *							If true, physics velocity for this object is unchanged (so ragdoll parts are not affected by change in location).
+	 *							If false, physics velocity is updated based on the change in position (affecting ragdoll parts).
+	 *							If CCD is on and not teleporting, this will affect objects along the entire swept volume.
+	 */
+	UFUNCTION(BlueprintCallable, Category="Transformation", meta=(DisplayName="Add Actor Local Offset", ScriptName="AddActorLocalOffset", Keywords="location position"))
+	void K2_AddActorLocalOffset(FVector DeltaLocation, bool bSweep, FHitResult& SweepHitResult, bool bTeleport);
+
+	/**
+	 * Adds a delta to the rotation of this component in its local reference frame
+	 * @param DeltaRotation		The change in rotation in local space.
+	 * @param bSweep			Whether we sweep to the destination location, triggering overlaps along the way and stopping short of the target if blocked by something.
+	 *							Only the root component is swept and checked for blocking collision, child components move without sweeping. If collision is off, this has no effect.
+	 * @param bTeleport			Whether we teleport the physics state (if physics collision is enabled for this object).
+	 *							If true, physics velocity for this object is unchanged (so ragdoll parts are not affected by change in location).
+	 *							If false, physics velocity is updated based on the change in position (affecting ragdoll parts).
+	 *							If CCD is on and not teleporting, this will affect objects along the entire swept volume.
+	 */
+	UFUNCTION(BlueprintCallable, Category="Transformation", meta=(DisplayName="Add Actor Local Rotation", ScriptName="AddActorLocalRotation", AdvancedDisplay="bSweep,SweepHitResult,bTeleport"))
+	void K2_AddActorLocalRotation(FRotator DeltaRotation, bool bSweep, FHitResult& SweepHitResult, bool bTeleport);
+
+	/**
 	 *	Sets the actor to be hidden in the game
 	 *	@param	bNewHidden	Whether or not to hide the actor and all its components
 	 */
 	UFUNCTION(BlueprintCallable, Category="Rendering", meta=( DisplayName = "Set Actor Hidden In Game", Keywords = "Visible Hidden Show Hide" ))
 	virtual void SetActorHiddenInGame(bool bNewHidden);
+
+	/** Destroy the actor */
+	UFUNCTION(BlueprintCallable, Category="Actor", meta=(Keywords = "Delete", DisplayName = "Destroy Actor", ScriptName = "DestroyActor"))
+	virtual void K2_DestroyActor();
 
 	/** See if this actor's Tags array contains the supplied name tag */
 	UFUNCTION(BlueprintCallable, Category="Actor")
@@ -182,6 +285,26 @@ class ENGINE_API AActor : public UObject
 	void ReceiveBeginPlay();
 
 	/** 
+	 * Set this actor's tick functions to be enabled or disabled. Only has an effect if the function is registered
+	 * This only modifies the tick function on actor itself
+	 * @param	bEnabled	Whether it should be enabled or not
+	 */
+	UFUNCTION(BlueprintCallable, Category="Actor|Tick")
+	void SetActorTickEnabled(bool bEnabled);
+
+	/**  Returns whether this actor has tick enabled or not	 */
+	UFUNCTION(BlueprintCallable, Category="Actor|Tick")
+	bool IsActorTickEnabled() const;
+
+	/** 
+	 * Check whether any component of this Actor is overlapping any component of another Actor.
+	 * @param Other The other Actor to test against
+	 * @return Whether any component of this Actor is overlapping any component of another Actor.
+	 */
+	UFUNCTION(BlueprintCallable, Category="Collision", meta=(UnsafeDuringActorConstruction="true"))
+	bool IsOverlappingActor(const AActor* Other) const;
+	
+	/** 
 	 *	Function called every frame on this Actor. Override this function to implement custom logic to be executed every frame.
 	 *	Note that Tick is disabled by default, and you will need to check PrimaryActorTick.bCanEverTick is set to true to enable it.
 	 *
@@ -189,6 +312,20 @@ class ENGINE_API AActor : public UObject
 	 */
 	virtual void Tick( float DeltaSeconds );
 
+	/**
+	 * Teleport this actor to a new location. If the actor doesn't fit exactly at the location specified, tries to slightly move it out of walls and such.
+	 *
+	 * @param DestLocation The target destination point
+	 * @param DestRotation The target rotation at the destination
+	 * @return true if the actor has been successfully moved, or false if it couldn't fit.
+	 */
+	UFUNCTION(BlueprintCallable, meta=( DisplayName="Teleport", ScriptName="Teleport", Keywords = "Move Position" ), Category="Transformation")
+	bool K2_TeleportTo( FVector DestLocation, FRotator DestRotation );
+
+	/** Event called when this Actor is reset to its initial state - used when restarting level without reloading. */
+	UFUNCTION(BlueprintImplementableEvent, Category=Actor, meta=(DisplayName="OnReset", ScriptName="OnReset"))
+	void K2_OnReset();
+		
 	/**
 	 * Get the owning connection used for communicating between client/server 
 	 * @return NetConnection to the client or server for this actor
