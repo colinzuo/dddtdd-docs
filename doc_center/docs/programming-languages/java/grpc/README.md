@@ -1,6 +1,5 @@
 ---
 title: Java GRPC介绍
-slug: /programming-languages/java/grpc/
 ---
 
 + [quickstart](https://grpc.io/docs/languages/java/quickstart/)

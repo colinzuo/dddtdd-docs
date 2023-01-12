@@ -12,7 +12,7 @@ slug: /
 [后端](../backend/README.md)框架如spring
 
 ## 编程语言
-[编程语言](../programming-languages/README.md)如golang, java, javascript, python
+编程语言如 golang, java, javascript, python
 
 ## 云
 [云](../cloud/README.md)相关如docker，kubernets

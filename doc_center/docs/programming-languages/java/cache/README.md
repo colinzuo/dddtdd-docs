@@ -1,6 +1,5 @@
 ---
 title: Java Cache介绍
-slug: /programming-languages/java/cache/
 ---
 
 缓存分为本地缓存和分布式缓存，本地缓存可以使用[Caffeine](./caffeine)，
