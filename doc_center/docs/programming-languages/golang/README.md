@@ -1,6 +1,5 @@
 ---
 title: Golang介绍
-slug: /programming-languages/golang/
 ---
 
 

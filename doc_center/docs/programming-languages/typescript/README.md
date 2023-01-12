@@ -1,2 +1,5 @@
+---
+title: Typescript介绍
+---
 
-<https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html>
+<https://www.typescriptlang.org/docs/>
