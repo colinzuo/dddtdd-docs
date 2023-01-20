@@ -104,7 +104,27 @@ size这个prop的通用定义
   }
 ```
 
+## useModelToggle
 
+根据传入的prop名字生成对应的控制show和hide的逻辑
+
+使用方提供
+
+```ts
+  const useModelToggle = ({
+    indicator,
+    toggleReason,
+    shouldHideWhenRouteChanges,
+    shouldProceed,
+    onShow,
+    onHide,
+  }: ModelToggleParams) => {
+```    
+
+实现侧触发有两种
+
+- 一个是通过watch触发的: `props[name]`, `instance.proxy.$route`
+- 一个是提供给外部的函数: `hide`, `show`, `toggle`
 
 ## useNamespace
 
@@ -112,12 +132,37 @@ css变量的命名等，比如
 
 `${namespace}-${block}-${blockSuffix}__${element}--${modifier}`
 
+## useOrderedChildren
+
+从`ComponentInternalInstance.subTree`获取具有`childComponentName`名字的component，生成一个排序的列表
+当调用`addChild`或者`removeChild`时更新输出
+
+## usePopperContainer
+
+- usePopperContainerId: 为container生成一个id，`${namespace.value}-popper-container-${idInjection.prefix}`
+- usePopperContainer: 如果不存在，则生成一个`div`，然后`document.body.appendChild`
+
 ## useProp
 
 从`vm.proxy?.$props`提取指定prop
+
+## useRestoreActive
+
+- 当显示时记录 `previousActive = document.activeElement`
+- 当隐藏时恢复 `previousActive.focus()`
+
+## useSameTarget
+
+当mouse down和up时都满足`e.target === e.currentTarget`才调用`handleClick`
 
 ## useTimeout
 
 - registerTimeout: 调用setTimeout
 - cancelTimeout: 调用setTimeout
 - 在tryOnScopeDispose时自动cancelTimeout
+
+## useZIndex
+
+- initialZIndex: `initialZIndex = useGlobalConfig('zIndex', 2000)`
+- currentZIndex: `currentZIndex = computed(() => initialZIndex.value + zIndex.value)`
+- nextZIndex: `zIndex.value++`
