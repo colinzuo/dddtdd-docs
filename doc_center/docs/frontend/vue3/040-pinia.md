@@ -112,6 +112,9 @@ We are defining a store because the store **won't be created until** `use...Stor
 
 Once the store is instantiated, you can **access any property defined in state, getters, and actions directly** on the store
 
+Note that **store is an object wrapped with reactive**, meaning there is no need to write `.value` after getters but, 
+like props in setup, we **cannot destructure it**
+
 In order to extract properties from the store while keeping its reactivity, you need to use `storeToRefs()`
 
 ```js
@@ -226,6 +229,16 @@ Unlike getters, actions can be asynchronous, you can **await inside of actions**
 ## Plugins
 
 This is useful to add global objects like the router, modal, or **toast managers**
+
+```ts
+export function myPiniaPlugin(context) {
+  context.pinia // the pinia created with `createPinia()`
+  context.app // the current app created with `createApp()` (Vue 3 only)
+  context.store // the store the plugin is augmenting
+  context.options // the options object defining the store passed to `defineStore()`
+  // ...
+}
+```
 
 ### Augmenting a Store
 
@@ -367,19 +380,17 @@ declare module 'pinia' {
 
 Behind the scenes, `useStore()` **injects the pinia instance** you gave to your app
 
-```js
-import { createRouter } from 'vue-router'
-const router = createRouter({
-  // ...
-})
+This means that if the pinia instance cannot be automatically injected, you have to **manually provide it to the useStore()** function
 
-router.beforeEach((to) => {
-  // ✅ This will work because the router starts its navigation after
-  // the router is installed and pinia will be installed too
-  const store = useStore()
+If you are not doing any SSR (Server Side Rendering), **any call of useStore() after installing the pinia plugin with app.use(pinia) will work**
 
-  if (to.meta.requiresAuth && !store.isLoggedIn) return '/login'
-})
+```ts
+const pinia = createPinia()
+const app = createApp(App)
+app.use(pinia)
+
+// ✅ works because the pinia instance is now active
+const userStore = useUserStore()
 ```
 
 ## HMR (Hot Module Replacement)
@@ -401,6 +412,8 @@ if (import.meta.hot) {
 ## Testing stores
 
 ### Unit testing a store
+
+`setActivePinia(createPinia())`
 
 ```ts
 // stores/counter.spec.ts
@@ -429,104 +442,6 @@ describe('Counter Store', () => {
   })
 })
 ```
-
-If you have any store plugins, there is one important thing to know: **plugins won't be used until pinia is installed in an App**. This can be solved by creating an empty App or a fake one
-
-```js
-import { setActivePinia, createPinia } from 'pinia'
-import { createApp } from 'vue'
-import { somePlugin } from '../src/stores/plugin'
-
-// same code as above...
-
-// you don't need to create one app per test
-const app = createApp({})
-beforeEach(() => {
-  const pinia = createPinia().use(somePlugin)
-  app.use(pinia)
-  setActivePinia(pinia)
-})
-```
-
-### Unit testing components
-
-```bash
-npm i -D @pinia/testing
-```
-
-```js
-import { mount } from '@vue/test-utils'
-import { createTestingPinia } from '@pinia/testing'
-// import any store you want to interact with in tests
-import { useSomeStore } from '@/stores/myStore'
-
-const wrapper = mount(Counter, {
-  global: {
-    plugins: [createTestingPinia()],
-  },
-})
-
-const store = useSomeStore() // uses the testing pinia!
-
-// state can be directly manipulated
-store.name = 'my new name'
-// can also be done through patch
-store.$patch({ name: 'new name' })
-expect(store.name).toBe('new name')
-
-// actions are stubbed by default, meaning they don't execute their code by default.
-// See below to customize this behavior.
-store.someAction()
-
-expect(store.someAction).toHaveBeenCalledTimes(1)
-expect(store.someAction).toHaveBeenLastCalledWith()
-```
-
-#### Initial State
-
-You can set the initial state of **all of your stores** when creating a testing pinia by passing an initialState object.
-
-```ts
-// somewhere in your test
-const wrapper = mount(Counter, {
-  global: {
-    plugins: [
-      createTestingPinia({
-        initialState: {
-          counter: { n: 20 }, // start the counter at 20 instead of 0
-        },
-      }),
-    ],
-  },
-})
-
-const store = useSomeStore() // uses the testing pinia!
-store.n // 20
-```
-
-#### Customizing behavior of actions
-
-createTestingPinia **stubs out all store actions unless told otherwise**. This allows you to test your components and stores separately.
-
-If you want to revert this behavior and normally execute your actions during tests, specify `stubActions: false` when calling createTestingPinia
-
-```js
-const wrapper = mount(Counter, {
-  global: {
-    plugins: [createTestingPinia({ stubActions: false })],
-  },
-})
-
-const store = useSomeStore()
-
-// Now this call WILL execute the implementation defined by the store
-store.someAction()
-
-// ...but it's still wrapped with a spy, so you can inspect calls
-expect(store.someAction).toHaveBeenCalledTimes(1)
-```
-
-<https://github.com/vuejs/pinia/blob/v2/packages/testing/src/testing.spec.ts>
 
 ## Dealing with Composables
 

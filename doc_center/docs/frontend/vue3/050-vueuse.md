@@ -36,9 +36,14 @@ export default {
 
 Most of the functions in VueUse **return an object of refs** that you can use ES6's object **destructure syntax** on to take what you need
 
+### Side-effect Clean Up
+
+Similar to Vue's watch and computed that will be disposed when the component is unmounted, VueUse's functions also **clean up the side-effects automatically**
+
 ### Passing Ref as Argument
 
-In Vue, we use the `setup()` function to construct the "connections" between the data and logics. **To make it flexible**, most of the VueUse function also **accpets ref** version of the arguments
+In Vue, we use the `setup()` function to construct the "connections" between the data and logics. 
+**To make it flexible**, most of the VueUse function also **accpets ref** version of the arguments
 
 ```js
 const isDark = useDark()
@@ -50,6 +55,8 @@ useTitle(title)
 ## Configurations
 
 ### Event Filters
+
+From v4.0, we provide the Event Filters system to give the flexibility to **control when events will get triggered**
 
 ```js
 import { debounceFilter, throttleFilter, useLocalStorage, useMouse } from '@vueuse/core'
@@ -65,9 +72,12 @@ const { x, y } = useMouse({ eventFilter: debounceFilter(100) })
 
 ### General
 
-- Use ref instead reactive whenever possible
-- When using watch or watchEffect internally, also make the immediate and flush options configurable whenever possible
-- Use tryOnUnmounted to clear the side-effects gracefully
+- Use `ref` instead `reactive` whenever possible
+- Use options object as arguments whenever possible to be more flexible for future extensions
+- Use `shallowRef` instead of ref when wrapping large amounts of data
+- When using `watch` or `watchEffect` internally, also make the `immediate` and `flush` options configurable whenever possible
+- Use `tryOnUnmounted` to clear the side-effects gracefully
+- When the function is asynchronous, return a PromiseLike
 
 ### ShallowRef
 
