@@ -10,11 +10,12 @@ kubernetes之类的文档里的例子都是基于ubuntu的，所以个人也转�
 
 ## 系统版本
 
-建议安装Ubuntu 18.04，不建议ubuntu 16.04的原因是它的内核版本(4.4)有些老，之前使用过程中偶现kernel panic，换到ubuntu 18.04(内核4.15)后未碰到
+建议安装Ubuntu 20.04
 
-## Ubuntu 18.04安装
+## Ubuntu 20.04安装
 
 ### 安装系统
+
 + 配置静态ip
 命令行方式下可以通过修改/etc/netplan/目录下文件实现
 ```bash
@@ -31,15 +32,26 @@ network:
 
 sudo netplan apply
 ```
-+ 安装openssh-server, vim
-```bash
-sudo apt-get install -y openssh-server vim
-```
+
+### 修改ssh配置使能老版本SecureCRT登录
+
+<https://blog.csdn.net/zengraoli/article/details/117170748>
+<https://blog.csdn.net/charlie2cindy/article/details/121523155>
+
+### 配置系统
+
 + 切换编辑器到vim
 ```bash
 sudo update-alternatives --config editor
 ```
+
++ 配置`sudo -i`不需要密码
+```text title="visudo"
+root1 ALL = (root) NOPASSWD:ALL
+```
+
 +  [使能root登录](https://askubuntu.com/questions/469143/how-to-enable-ssh-root-access-on-ubuntu-14-04)
+(方便ansible操作)
 ```
 # /etc/ssh/sshd_config
 PermitRootLogin yes
@@ -50,12 +62,13 @@ service sshd reload
 # set passwd
 passwd
 ```
+
 + [同步时间](https://vitux.com/how-to-install-ntp-server-and-client-on-ubuntu/)
 ```bash
 sudo apt-get install -y ntp
 ```
 
-### 更换apt源
+### 更换apt源 (需更新到20.04版本)
 参照[Ubuntu 18.04 LTS 更换国内源](https://zhuanlan.zhihu.com/p/61228593)
 
 ```
@@ -83,6 +96,12 @@ deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted unive
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install build-essential
+```
+
+### 安装python3
+
+```bash
+sudo apt install python3-pip
 ```
 
 ## 安装nodejs

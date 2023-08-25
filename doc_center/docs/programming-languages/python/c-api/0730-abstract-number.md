@@ -1,0 +1,30 @@
+---
+title: Number Protocol
+---
+
+- `int PyNumber_Check(PyObject *o)`
+- `PyObject *PyNumber_Add(PyObject *o1, PyObject *o2)`
+- `PyObject *PyNumber_Subtract(PyObject *o1, PyObject *o2)`
+- `PyObject *PyNumber_Multiply(PyObject *o1, PyObject *o2)`
+- `PyObject *PyNumber_MatrixMultiply(PyObject *o1, PyObject *o2)`
+- `PyObject *PyNumber_FloorDivide(PyObject *o1, PyObject *o2)`
+- `PyObject *PyNumber_TrueDivide(PyObject *o1, PyObject *o2)`
+- `PyObject *PyNumber_Remainder(PyObject *o1, PyObject *o2)`
+- `PyObject *PyNumber_Divmod(PyObject *o1, PyObject *o2)`
+- `PyObject *PyNumber_Power(PyObject *o1, PyObject *o2, PyObject *o3)`
+- `PyObject *PyNumber_Negative(PyObject *o)`
+- `PyObject *PyNumber_Positive(PyObject *o)`
+- `PyObject *PyNumber_Absolute(PyObject *o)`
+- `PyObject *PyNumber_Invert(PyObject *o)`
+- `PyObject *PyNumber_Lshift(PyObject *o1, PyObject *o2)`
+- `PyObject *PyNumber_Rshift(PyObject *o1, PyObject *o2)`
+- `PyObject *PyNumber_And(PyObject *o1, PyObject *o2)`
+- `PyObject *PyNumber_Xor(PyObject *o1, PyObject *o2)`
+- `PyObject *PyNumber_Or(PyObject *o1, PyObject *o2)`
+- `PyObject *PyNumber_InPlaceAdd(PyObject *o1, PyObject *o2)`
+- `PyObject *PyNumber_Long(PyObject *o)`
+- `PyObject *PyNumber_Float(PyObject *o)`
+- `PyObject *PyNumber_Index(PyObject *o)`
+- `PyObject *PyNumber_ToBase(PyObject *n, int base)`
+- `Py_ssize_t PyNumber_AsSsize_t(PyObject *o, PyObject *exc)`
+- `int PyIndex_Check(PyObject *o)`

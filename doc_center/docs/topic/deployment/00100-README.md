@@ -1,6 +1,5 @@
 ---
 title: 部署介绍
-slug: /topic/deployment/
 ---
 
 VM本身的创建应该基于terraform，不过个人没有机会尝试，从一些培训视频感觉应该用它，基本意思就是指定cpu，内存，硬盘等配置后，这个工具就能自动创建对应配置的VM，应该类似Vmware

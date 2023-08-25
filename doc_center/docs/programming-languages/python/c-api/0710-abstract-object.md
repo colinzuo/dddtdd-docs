@@ -1,0 +1,41 @@
+---
+title: Object Protocol
+---
+
+- `PyObject *Py_NotImplemented`
+- `Py_RETURN_NOTIMPLEMENTED`
+- `int PyObject_Print(PyObject *o, FILE *fp, int flags)`
+- `int PyObject_HasAttr(PyObject *o, PyObject *attr_name)`
+- `int PyObject_HasAttrString(PyObject *o, const char *attr_name)`
+- `PyObject *PyObject_GetAttr(PyObject *o, PyObject *attr_name)`
+- `PyObject *PyObject_GetAttrString(PyObject *o, const char *attr_name)`
+- `PyObject *PyObject_GenericGetAttr(PyObject *o, PyObject *name)`
+- `int PyObject_SetAttr(PyObject *o, PyObject *attr_name, PyObject *v)`
+- `int PyObject_SetAttrString(PyObject *o, const char *attr_name, PyObject *v)`
+- `int PyObject_GenericSetAttr(PyObject *o, PyObject *name, PyObject *value)`
+- `int PyObject_DelAttr(PyObject *o, PyObject *attr_name)`
+- `int PyObject_DelAttrString(PyObject *o, const char *attr_name)`
+- `PyObject *PyObject_GenericGetDict(PyObject *o, void *context)`
+- `int PyObject_GenericSetDict(PyObject *o, PyObject *value, void *context)`
+- `PyObject *PyObject_RichCompare(PyObject *o1, PyObject *o2, int opid)`
+- `int PyObject_RichCompareBool(PyObject *o1, PyObject *o2, int opid)`
+- `PyObject *PyObject_Format(PyObject *obj, PyObject *format_spec)`
+- `PyObject *PyObject_Repr(PyObject *o)`
+- `PyObject *PyObject_Str(PyObject *o)`
+- `PyObject *PyObject_Bytes(PyObject *o)`
+- `int PyObject_IsSubclass(PyObject *derived, PyObject *cls)`
+- `int PyObject_IsInstance(PyObject *inst, PyObject *cls)`
+- `Py_hash_t PyObject_Hash(PyObject *o)`
+- `Py_hash_t PyObject_HashNotImplemented(PyObject *o)`
+- `int PyObject_IsTrue(PyObject *o)`
+- `int PyObject_Not(PyObject *o)`
+- `PyObject *PyObject_Type(PyObject *o)`
+- `int PyObject_TypeCheck(PyObject *o, PyTypeObject *type)`
+- `Py_ssize_t PyObject_Size(PyObject *o)`
+- `Py_ssize_t PyObject_Length(PyObject *o)`
+- `PyObject *PyObject_GetItem(PyObject *o, PyObject *key)`
+- `int PyObject_SetItem(PyObject *o, PyObject *key, PyObject *v)`
+- `int PyObject_DelItem(PyObject *o, PyObject *key)`
+- `PyObject *PyObject_Dir(PyObject *o)`
+- `PyObject *PyObject_GetIter(PyObject *o)`
+- `PyObject *PyObject_GetAIter(PyObject *o)`

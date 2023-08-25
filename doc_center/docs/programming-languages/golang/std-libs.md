@@ -1,5 +1,5 @@
 
-## bytes
+## bytes 703,073
 
 <https://pkg.go.dev/bytes>
 
@@ -57,9 +57,14 @@
 	+ `func (r *Reader) Seek(offset int64, whence int) (int64, error)`
 	+ `func (r *Reader) WriteTo(w io.Writer) (n int64, err error)`
 
-## context
+## bufio 225,962
+
+<https://pkg.go.dev/bufio>
+
+## context 934,913
 
 <https://pkg.go.dev/context>
+<https://go.dev/blog/pipelines>
 
 Package context defines the Context type, which carries deadlines, cancellation signals, and other request-scoped 
 values across API boundaries and between processes.
@@ -90,8 +95,8 @@ The returned context's Done channel is closed when the deadline expires, when th
 
 - `func Background() Context`
 
-Background returns a non-nil, empty Context. It is never canceled, has no values, and has no deadline. It is typically used by 
-the main function, initialization, and tests, and as the top-level Context for incoming requests
+Background returns a non-nil, empty Context. It is never canceled, has no values, and has no deadline. 
+It is typically used by the main function, initialization, and tests, and as the top-level Context for incoming requests
 
 - `func WithValue(parent Context, key, val any) Context`
 
@@ -113,7 +118,15 @@ Users of WithValue should define their own types for keys.
 	ctx := context.WithValue(context.Background(), k, "Go")
 ```
 
-## database/sql
+## crpto/rand 110,554
+
+<https://pkg.go.dev/crypto/rand>
+
+## crpto/tls 108,593
+
+<https://pkg.go.dev/crypto/tls>
+
+## database/sql 78,070
 
 <https://pkg.go.dev/database/sql>
 
@@ -298,11 +311,27 @@ Close closes the Rows, preventing further enumeration. If Next is called and ret
 Next prepares the next result row for reading with the Scan method. It returns true on success, or false if there is no next result row or an error happened while preparing it. Err should be consulted to distinguish between the two cases.
 
 
-## embed
+## embed 21,819
 
 <https://pkg.go.dev/embed>
 
-## errors
+## encoding/base64 132,846
+
+<https://pkg.go.dev/encoding/base64>
+
+## encoding/binary 151,414
+
+<https://pkg.go.dev/encoding/binary>
+
+## encoding/hex 129,271
+
+<https://pkg.go.dev/encoding/hex>
+
+## encoding/json 760,996
+
+<https://pkg.go.dev/encoding/json>
+
+## errors 857,083
 
 <https://pkg.go.dev/errors>
 
@@ -314,19 +343,39 @@ Next prepares the next result row for reading with the Scan method. It returns t
 - `func New(text string) error`
 - `func Unwrap(err error) error`
 
-## flag
+## flag 275,520
 
 <https://pkg.go.dev/flag>
 
-## io
+## fmt 2,479,414
+
+<https://pkg.go.dev/fmt>
+
+## hash 40,273
+
+<https://pkg.go.dev/hash>
+
+## html/template 51,271
+
+<https://pkg.go.dev/html/template>
+
+## image 27,721
+
+<https://pkg.go.dev/image>
+
+## io 818,044
 
 <https://pkg.go.dev/io>
 
-## io/fs
+## io/fs 14,408
 
 <https://pkg.go.dev/io/fs>
 
 Package fs defines basic interfaces to a file system. A file system can be provided by the host operating system but also by other packages
+
+## io/ioutil 547,524
+
+<https://pkg.go.dev/io/ioutil>
 
 ### Functions
 
@@ -355,13 +404,21 @@ Package fs defines basic interfaces to a file system. A file system can be provi
 - SubFS
 - WalkDirFunc
 
-## math
+## log 592,224
+
+<https://pkg.go.dev/log>
+
+## math 303,583
 
 <https://pkg.go.dev/math>
 
 - `func Abs(x float64) float64`
 
-## math/rand
+## math/big 111,177
+
+<https://pkg.go.dev/math/big>
+
+## math/rand 175,487
 
 <https://pkg.go.dev/math/rand>
 
@@ -378,7 +435,27 @@ Package fs defines basic interfaces to a file system. A file system can be provi
 - `type Rand struct`
 	+ `func New(src Source) *Rand`
 
-## os
+## mime 19,006
+
+<https://pkg.go.dev/mime>
+
+## net 352,132
+
+<https://pkg.go.dev/net>
+
+## net/http 826,809
+
+<https://pkg.go.dev/net/http>
+
+## net/httputil 20,463
+
+<https://pkg.go.dev/net/http/httputil>
+
+## net/url 316,398
+
+<https://pkg.go.dev/net/url>
+
+## os 1,142,486
 
 <https://pkg.go.dev/os>
 
@@ -402,19 +479,59 @@ Package fs defines basic interfaces to a file system. A file system can be provi
 - `func Rename(oldpath, newpath string) error`
 - `func WriteFile(name string, data []byte, perm FileMode) error`
 
-## path/filepath
+## os/exec 140,331
+
+<https://pkg.go.dev/os/exec>
+
+## os/signal 93,706
+
+<https://pkg.go.dev/os/signal>
+
+## path 184,661
+
+<https://pkg.go.dev/path>
+
+## path/filepath 376,569
 
 <https://pkg.go.dev/path/filepath>
 
-## strconv
+## reflection 422,268
+
+<https://pkg.go.dev/reflect>
+
+<https://go.dev/blog/laws-of-reflection>
+
+<https://research.swtch.com/interfaces>
+
+## regexp 281,313
+
+<https://pkg.go.dev/regexp>
+
+## runtime 233,374
+
+<https://pkg.go.dev/runtime>
+
+## runtime/debug 29,113
+
+<https://pkg.go.dev/runtime/debug>
+
+## slices 200
+
+<https://pkg.go.dev/slices>
+
+## sort 298,139
+
+<https://pkg.go.dev/sort>
+
+## strconv 714,304
 
 <https://pkg.go.dev/strconv>
 
-## strings
+## strings 1,346,470
 
 <https://pkg.go.dev/strings>
 
-## sync
+## sync 710,183
 
 <https://pkg.go.dev/sync>
 
@@ -450,7 +567,15 @@ Package fs defines basic interfaces to a file system. A file system can be provi
 	+ `func (wg *WaitGroup) Done()`
 	+ `func (wg *WaitGroup) Wait()`
 
-## testing
+## sync/atomic 125,983
+
+<https://pkg.go.dev/sync/atomic>
+
+## syscall 156,670
+
+<https://pkg.go.dev/syscall>
+
+## testing 63,663
 
 <https://pkg.go.dev/testing>
 
@@ -512,11 +637,11 @@ func TestMain(m *testing.M) {
 	+ `func (c *T) Skipped() bool`
 	+ `func (c *T) TempDir() string`
 
-## text/template
+## text/template 62,028
 
 <https://pkg.go.dev/text/template>
 
-## time
+## time 1,410,979
 
 <https://pkg.go.dev/time>
 
@@ -547,7 +672,7 @@ func TestMain(m *testing.M) {
 	+ `func NewTimer(d Duration) *Timer`
 	+ `func (t *Timer) Stop() bool`
 
-## unicode
+## unicode 69,773
 
 <https://pkg.go.dev/unicode>
 
@@ -560,3 +685,11 @@ func TestMain(m *testing.M) {
 - `func IsUpper(r rune) bool`
 - `func ToLower(r rune) rune`
 - `func ToUpper(r rune) rune`
+
+## unicode/utf8 75,146
+
+<https://pkg.go.dev/unicode/utf8>
+
+## unsafe 90,224
+
+<https://pkg.go.dev/unsafe>
