@@ -113,22 +113,6 @@ function Footer() {
             />
           </div>
         )}
-        <div className={styles.beianContainer}>
-          <a target="_blank" 
-            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802033845" 
-            className={styles.beianLink}>
-            <img src={beianUrl} className={styles.beianImage}/>
-            <p className={styles.beianNumber}>
-              京公网安备 11010802033845号
-            </p>
-          </a>
-          <a href="https://beian.miit.gov.cn" target="_blank"
-            className={styles.beianLink}>
-              <p className={styles.beianNumber}>
-                京ICP备2020046909号
-              </p>
-            </a>
-        </div>
       </div>
     </footer>
   );
