@@ -1,0 +1,22 @@
+---
+title: Set Objects
+---
+
+- `type PySetObject`
+- `PyTypeObject PySet_Type`
+- `PyTypeObject PyFrozenSet_Type`
+- `int PySet_Check(PyObject *p)`
+- `int PyFrozenSet_Check(PyObject *p)`
+- `int PyAnySet_Check(PyObject *p)`
+- `int PySet_CheckExact(PyObject *p)`
+- `int PyAnySet_CheckExact(PyObject *p)`
+- `int PyFrozenSet_CheckExact(PyObject *p)`
+- `PyObject *PySet_New(PyObject *iterable)`
+- `PyObject *PyFrozenSet_New(PyObject *iterable)`
+- `Py_ssize_t PySet_Size(PyObject *anyset)`
+- `Py_ssize_t PySet_GET_SIZE(PyObject *anyset)`
+- `int PySet_Contains(PyObject *anyset, PyObject *key)`
+- `int PySet_Add(PyObject *set, PyObject *key)`
+- `int PySet_Discard(PyObject *set, PyObject *key)`
+- `PyObject *PySet_Pop(PyObject *set)`
+- `int PySet_Clear(PyObject *set)`

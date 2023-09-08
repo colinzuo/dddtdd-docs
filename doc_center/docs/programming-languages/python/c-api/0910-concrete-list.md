@@ -1,0 +1,22 @@
+---
+title: Tuple Objects
+---
+
+- `type PyListObject`
+- `PyTypeObject PyList_Type`
+- `int PyList_Check(PyObject *p)`
+- `int PyList_CheckExact(PyObject *p)`
+- `PyObject *PyList_New(Py_ssize_t len)`
+- `Py_ssize_t PyList_Size(PyObject *list)`
+- `Py_ssize_t PyList_GET_SIZE(PyObject *list)`
+- `PyObject *PyList_GetItem(PyObject *list, Py_ssize_t index)`
+- `PyObject *PyList_GET_ITEM(PyObject *list, Py_ssize_t i)`
+- `int PyList_SetItem(PyObject *list, Py_ssize_t index, PyObject *item)`
+- `void PyList_SET_ITEM(PyObject *list, Py_ssize_t i, PyObject *o)`
+- `int PyList_Insert(PyObject *list, Py_ssize_t index, PyObject *item)`
+- `int PyList_Append(PyObject *list, PyObject *item)`
+- `PyObject *PyList_GetSlice(PyObject *list, Py_ssize_t low, Py_ssize_t high)`
+- `int PyList_SetSlice(PyObject *list, Py_ssize_t low, Py_ssize_t high, PyObject *itemlist)`
+- `int PyList_Sort(PyObject *list)`
+- `int PyList_Reverse(PyObject *list)`
+- `PyObject *PyList_AsTuple(PyObject *list)`

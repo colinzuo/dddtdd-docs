@@ -1,0 +1,52 @@
+---
+title: DateTime Objects
+---
+
+- `type PyDateTime_Date`
+- `type PyDateTime_DateTime`
+- `type PyDateTime_Time`
+- `type PyDateTime_Delta`
+- `PyTypeObject PyDateTime_DateType`
+- `PyTypeObject PyDateTime_DateTimeType`
+- `PyTypeObject PyDateTime_TimeType`
+- `PyTypeObject PyDateTime_DeltaType`
+- `PyTypeObject PyDateTime_TZInfoType`
+- `PyObject *PyDateTime_TimeZone_UTC`
+- `int PyDate_Check(PyObject *ob)`
+- `int PyDate_CheckExact(PyObject *ob)`
+- `int PyDateTime_Check(PyObject *ob)`
+- `int PyDateTime_CheckExact(PyObject *ob)`
+- `int PyTime_Check(PyObject *ob)`
+- `int PyTime_CheckExact(PyObject *ob)`
+- `int PyDelta_Check(PyObject *ob)`
+- `int PyDelta_CheckExact(PyObject *ob)`
+- `int PyTZInfo_Check(PyObject *ob)`
+- `int PyTZInfo_CheckExact(PyObject *ob)`
+- `PyObject *PyDate_FromDate(int year, int month, int day)`
+- `PyObject *PyDateTime_FromDateAndTime(int year, int month, int day, int hour, int minute, int second, int usecond)`
+- `PyObject *PyDateTime_FromDateAndTimeAndFold(int year, int month, int day, int hour, int minute, int second, int usecond, int fold)`
+- `PyObject *PyTime_FromTime(int hour, int minute, int second, int usecond)`
+- `PyObject *PyTime_FromTimeAndFold(int hour, int minute, int second, int usecond, int fold)`
+- `PyObject *PyDelta_FromDSU(int days, int seconds, int useconds)`
+- `PyObject *PyTimeZone_FromOffset(PyObject *offset)`
+- `PyObject *PyTimeZone_FromOffsetAndName(PyObject *offset, PyObject *name)`
+- `int PyDateTime_GET_YEAR(PyDateTime_Date *o)`
+- `int PyDateTime_GET_MONTH(PyDateTime_Date *o)`
+- `int PyDateTime_GET_DAY(PyDateTime_Date *o)`
+- `int PyDateTime_DATE_GET_HOUR(PyDateTime_DateTime *o)`
+- `int PyDateTime_DATE_GET_MINUTE(PyDateTime_DateTime *o)`
+- `int PyDateTime_DATE_GET_SECOND(PyDateTime_DateTime *o)`
+- `int PyDateTime_DATE_GET_MICROSECOND(PyDateTime_DateTime *o)`
+- `int PyDateTime_DATE_GET_FOLD(PyDateTime_DateTime *o)`
+- `PyObject *PyDateTime_DATE_GET_TZINFO(PyDateTime_DateTime *o)`
+- `int PyDateTime_TIME_GET_HOUR(PyDateTime_Time *o)`
+- `int PyDateTime_TIME_GET_MINUTE(PyDateTime_Time *o)`
+- `int PyDateTime_TIME_GET_SECOND(PyDateTime_Time *o)`
+- `int PyDateTime_TIME_GET_MICROSECOND(PyDateTime_Time *o)`
+- `int PyDateTime_TIME_GET_FOLD(PyDateTime_Time *o)`
+- `PyObject *PyDateTime_TIME_GET_TZINFO(PyDateTime_Time *o)`
+- `int PyDateTime_DELTA_GET_DAYS(PyDateTime_Delta *o)`
+- `int PyDateTime_DELTA_GET_SECONDS(PyDateTime_Delta *o)`
+- `int PyDateTime_DELTA_GET_MICROSECONDS(PyDateTime_Delta *o)`
+- `PyObject *PyDateTime_FromTimestamp(PyObject *args)`
+- `PyObject *PyDate_FromTimestamp(PyObject *args)`

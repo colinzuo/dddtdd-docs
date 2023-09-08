@@ -403,9 +403,9 @@ func SumNumbers[K comparable, V Number](m map[K]V) V {
 
 Goroutines run in the same address space, so access to shared memory must be synchronized. The sync package provides useful primitives
 
-The data flows in the direction of the arrow
-
 ### Channels
+
+The data flows in the direction of the arrow
 
 ```go
 ch := make(chan int)

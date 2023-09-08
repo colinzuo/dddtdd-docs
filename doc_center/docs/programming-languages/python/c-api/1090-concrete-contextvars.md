@@ -1,0 +1,22 @@
+---
+title: Context Variables Objects
+---
+
+- `type PyContext`
+- `type PyContextVar`
+- `type PyContextToken`
+- `PyTypeObject PyContext_Type`
+- `PyTypeObject PyContextVar_Type`
+- `PyTypeObject PyContextToken_Type`
+- `int PyContext_CheckExact(PyObject *o)`
+- `int PyContextVar_CheckExact(PyObject *o)`
+- `int PyContextToken_CheckExact(PyObject *o)`
+- `PyObject *PyContext_New(void)`
+- `PyObject *PyContext_Copy(PyObject *ctx)`
+- `PyObject *PyContext_CopyCurrent(void)`
+- `int PyContext_Enter(PyObject *ctx)`
+- `int PyContext_Exit(PyObject *ctx)`
+- `PyObject *PyContextVar_New(const char *name, PyObject *def)`
+- `int PyContextVar_Get(PyObject *var, PyObject *default_value, PyObject **value)`
+- `PyObject *PyContextVar_Set(PyObject *var, PyObject *value)`
+- `int PyContextVar_Reset(PyObject *var, PyObject *token)`
