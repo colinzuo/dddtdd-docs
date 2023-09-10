@@ -1,5 +1,4 @@
 ---
-sidebar_position: 200
 title: Installing stand alone command line tools
 ---
 

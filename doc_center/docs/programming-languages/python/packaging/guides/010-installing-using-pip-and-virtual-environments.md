@@ -1,5 +1,4 @@
 ---
-sidebar_position: 100
 title: Installing packages using pip and virtual environments
 ---
 
