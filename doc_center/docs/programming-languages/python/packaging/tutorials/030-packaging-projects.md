@@ -1,5 +1,4 @@
 ---
-sidebar_position: 300
 title: Packaging Python Projects
 ---
 
@@ -93,6 +92,10 @@ dist/
   example-package-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
   example-package-YOUR-USERNAME-HERE-0.0.1.tar.gz
 ```
+
+The `tar.gz` file is a source distribution whereas the `.whl` file is a built distribution
+
+You should always upload a source distribution and provide built distributions for the platforms your project is compatible with
 
 ## Uploading the distribution archives
 

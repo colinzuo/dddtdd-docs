@@ -1,5 +1,4 @@
 ---
-sidebar_position: 700
 title: Single-sourcing the package version
 ---
 

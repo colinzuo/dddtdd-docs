@@ -1,5 +1,4 @@
 ---
-sidebar_position: 800
 title: Packaging binary extensions
 ---
 

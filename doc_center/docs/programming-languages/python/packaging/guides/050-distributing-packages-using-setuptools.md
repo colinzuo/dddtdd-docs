@@ -1,5 +1,4 @@
 ---
-sidebar_position: 500
 title: Packaging and distributing projects
 ---
 

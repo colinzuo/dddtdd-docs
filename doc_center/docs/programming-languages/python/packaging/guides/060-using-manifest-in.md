@@ -1,5 +1,4 @@
 ---
-sidebar_position: 600
 title: Including files in source distributions with MANIFEST.in
 ---
 

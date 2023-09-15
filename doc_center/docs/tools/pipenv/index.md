@@ -17,5 +17,5 @@ sudo apt install pipenv
 如果是通过pyenv里的python安装的，则需要手动添加Scripts目录到path
 
 ```
-pip install --user pipenv
+pip install pipenv
 ```
