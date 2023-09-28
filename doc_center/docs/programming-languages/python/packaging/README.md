@@ -41,4 +41,6 @@ twine upload dist/package-name-version.tar.gz dist/package-name-version-py3-none
 
 Not all developers have the right tools or experiences to build these components written in these compiled languages, so Python created the Wheel, a package format designed to ship libraries with compiled artifacts.
 
+## references
 
+[Why you shouldn't invoke setup.py directly](https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html)

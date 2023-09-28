@@ -1,6 +1,5 @@
 ---
 title: Prometheus介绍
-slug: /middleware/prometheus/
 ---
 
 [官方文档](https://prometheus.io/docs/introduction/overview/)
