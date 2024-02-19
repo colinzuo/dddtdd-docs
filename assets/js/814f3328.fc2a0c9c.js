@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc_center=self.webpackChunkdoc_center||[]).push([[52535],{45641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Super Type Tokens","permalink":"/dddtdd-docs/blog/2021/02/18/super-type-tokens"},{"title":"\u5207\u6362\u5230docusaurus","permalink":"/dddtdd-docs/blog/2020/12/03/switch-to-docusaurus"}]}')}}]);
