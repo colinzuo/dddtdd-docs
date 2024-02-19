@@ -1,4 +1,14 @@
 
+## pattern
+
+- Future: channel buffer 1, 单一结果，这样结果可以不阻塞存到channel
+- Queue: channel unbuffer，多个消息
+- 给用户展现同步接口，内部通过channel和goroutine实现并发
+- 如果写入侧不检查，那么接收侧哪怕知道结果没用也需要接收从而不block写入侧
+- 可以通过一个单一元素的channel来实现串行运行
+- a worker pool can bound the peak resource usage of the program
+- 通过channel buffer设为limit来限制并发: Recall that we acquire this semaphore by sending a token, and we release it by discarding a token.
+
 ## Refs
 
 <https://go.dev/blog/pipelines>
@@ -10,6 +20,7 @@
 [GopherCon 2018: Bryan C. Mills - Rethinking Classical Concurrency Patterns](https://www.youtube.com/watch?v=5zXAHh5tJqQ)
 [GopherCon 2018: Filippo Valsorda- Asynchronous Networking Patterns](https://www.youtube.com/watch?v=afSiVelXDTQ)
 [Concurrency Patterns In Go](https://www.youtube.com/watch?v=YEKjSzIwAdA)
+[Concurrency](https://blogtitle.github.io/categories/concurrency/)
 
 ## pipelines
 

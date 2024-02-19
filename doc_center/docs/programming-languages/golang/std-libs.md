@@ -363,7 +363,7 @@ Next prepares the next result row for reading with the Scan method. It returns t
 
 <https://pkg.go.dev/image>
 
-## io 818,044
+## io 878,997
 
 <https://pkg.go.dev/io>
 
@@ -373,7 +373,7 @@ Next prepares the next result row for reading with the Scan method. It returns t
 
 Package fs defines basic interfaces to a file system. A file system can be provided by the host operating system but also by other packages
 
-## io/ioutil 547,524
+## io/ioutil 566,667
 
 <https://pkg.go.dev/io/ioutil>
 

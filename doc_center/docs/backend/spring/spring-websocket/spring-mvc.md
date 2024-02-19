@@ -258,7 +258,9 @@ public class MyChannelInterceptor implements ChannelInterceptor {
 ### Stomp Client
 
 ```java
-WebSocketClient webSocketClient = new StandardWebSocketClient(); WebSocketStompClient stompClient = new WebSocketStompClient(webSocketClient); stompClient.setMessageConverter(new StringMessageConverter()); 
+WebSocketClient webSocketClient = new StandardWebSocketClient(); 
+WebSocketStompClient stompClient = new WebSocketStompClient(webSocketClient); 
+stompClient.setMessageConverter(new StringMessageConverter()); 
 stompClient.setTaskScheduler(taskScheduler); // for heartbeats
 
 String url = "ws://127.0.0.1:8080/endpoint"; 
