@@ -18,3 +18,22 @@ docker run \
     -v prometheus-data:/prometheus \
     prom/prometheus
 ```
+
+## helm
+
+<https://github.com/prometheus-community/helm-charts>
+<https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus>
+
+```yaml
+alertmanager:
+  enabled: false
+
+kube-state-metrics:
+  enabled: false
+
+prometheus-node-exporter:
+  enabled: false
+  
+prometheus-pushgateway:
+  enabled: false
+```

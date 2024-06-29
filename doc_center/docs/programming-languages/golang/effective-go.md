@@ -28,6 +28,12 @@ var (
 
 ## 命名
 
+By convention, packages are given lower case, single-word names; there should be no need for underscores or mixedCaps
+
+Another convention is that the package name is the base name of its source directory
+
+it's neither idiomatic nor necessary to put Get into the getter's name. If you have a field called owner (lower case, unexported), the getter method should be called Owner (upper case, exported), not GetOwner
+
 - package名字小写，单个字
 - getter直接用变量名，不加Get
 - interface名字在方法名后加-er
@@ -51,6 +57,16 @@ if err := file.Chmod(0664); err != nil {
     return err
 }
 ```
+
+### Redeclaration and reassignment
+
+```go
+f, err := os.Open(name)
+
+d, err := f.Stat()
+```
+
+In a `:=` declaration a variable v, **if v is already declared in an outer scope, the declaration will create a new variable**
 
 ### for
 
