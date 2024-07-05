@@ -1,2 +1,0 @@
-
-通过创建subclass来捕捉generic信息
