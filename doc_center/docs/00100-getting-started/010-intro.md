@@ -6,7 +6,7 @@
 [前端](../00200-frontend/README.md)框架如angular，vue，react
 
 ## 后端
-[后端](../00300-backend/README.md)框架如spring
+[后端](../00300-backend/README.md)框架如gin
 
 ## 编程语言
 编程语言如 golang, java, javascript, python

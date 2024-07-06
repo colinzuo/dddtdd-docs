@@ -1,4 +1,3 @@
-```
 filebeat.inputs:
 - type: log
   enabled: true
@@ -40,4 +39,3 @@ output.logstash:
   # The Logstash hosts
   hosts: ["172.16.23.70:5044"]
   index: filebeat-autotest
-```

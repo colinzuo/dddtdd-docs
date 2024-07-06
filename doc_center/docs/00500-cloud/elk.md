@@ -80,7 +80,8 @@ export ELASTICSEARCH_PASSWORD=ezhTRZKhX2ItULXy1tXd
 ```
 
 + Create Configuration file
-[Sample Configuration](../_assets/files/filebeat_auto_portal.yml.md)
+
+[Sample Configuration](../assets/files/filebeat_auto_portal.yml)
 
 + Start filebeat
 ```bash

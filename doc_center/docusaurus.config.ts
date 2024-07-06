@@ -122,6 +122,7 @@ const config: Config = {
       /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
       {
         hashed: true,
+        indexBlog: false,
         language: ["en", "zh"],
       },
     ],
