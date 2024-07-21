@@ -119,7 +119,7 @@ Here are even more action commands Cypress provides to interact with your app:
 - `.clear()` - Clear the value of an input or textarea.
 - `.check()` - Check checkbox(es) or radio(s).
 - `.uncheck()` - Uncheck checkbox(es).
-- `.select()` - Select an <option> within a <select>.
+- `.select()` - Select an `<option>` within a `<select>`.
 - `.dblclick()` - Double-click a DOM element.
 - `.rightclick()` - Right-click a DOM element.
 
