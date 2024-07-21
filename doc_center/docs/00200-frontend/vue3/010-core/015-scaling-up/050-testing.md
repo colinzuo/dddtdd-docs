@@ -18,23 +18,23 @@ Component tests should focus on the component's **public interfaces** rather tha
 
 When testing, remember to **test what a component does, not how it does it**
 
-We **recommend** using `@vue/test-utils` for testing components in applications
+### Recommendation
+
+- [Cypress Component Testing](https://docs.cypress.io/guides/component-testing/overview) for components whose expected behavior depends on properly rendering styles or triggering native DOM events
 
 ```js
 const valueSelector = '[data-testid=stepper-value]'
 const buttonSelector = '[data-testid=increment]'
 
-const wrapper = mount(Stepper, {
+mount(Stepper, {
   props: {
     max: 1
   }
 })
 
-expect(wrapper.find(valueSelector).text()).toContain('0')
-
-await wrapper.find(buttonSelector).trigger('click')
-
-expect(wrapper.find(valueSelector).text()).toContain('1')
+cy.get(valueSelector).should('be.visible').and('contain.text', '0')
+  .get(buttonSelector).click()
+  .get(valueSelector).should('contain.text', '1')
 ```
 
 ## E2E Testing
