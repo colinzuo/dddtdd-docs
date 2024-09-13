@@ -8,6 +8,8 @@ def foo(a: expression, b: expression = 5):
     ...
 ```
 
+All annotation expressions are evaluated when the function definition is executed, just like default values
+
 ```python
 def foo(*args: expression, **kwargs: expression):
     ...
