@@ -235,6 +235,12 @@ three = df.pop("three")
 df.insert(1, "bar", df["one"])
 ```
 
+### Assigning new columns in method chains
+
+```py
+iris.assign(sepal_ratio=iris["SepalWidth"] / iris["SepalLength"])
+```
+
 ### Indexing / selection
 
 ```py
@@ -248,3 +254,7 @@ df[5:10]
 
 df[bool_vec]
 ```
+
+### DataFrame interoperability with NumPy functions
+
+`Series` implements `__array_ufunc__`, which allows it to work with NumPy’s [universal functions](https://numpy.org/doc/stable/reference/ufuncs.html).
