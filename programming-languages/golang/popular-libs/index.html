@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-programming-languages/golang/popular-libs" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.4.0">
+<title data-rh="true">popular-libs | 文档中心</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://colinzuo.github.io/dddtdd-docs/programming-languages/golang/popular-libs"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="popular-libs | 文档中心"><meta data-rh="true" name="description" content="auth"><meta data-rh="true" property="og:description" content="auth"><link data-rh="true" rel="icon" href="/dddtdd-docs/img/logo.png"><link data-rh="true" rel="canonical" href="https://colinzuo.github.io/dddtdd-docs/programming-languages/golang/popular-libs"><link data-rh="true" rel="alternate" href="https://colinzuo.github.io/dddtdd-docs/programming-languages/golang/popular-libs" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://colinzuo.github.io/dddtdd-docs/programming-languages/golang/popular-libs" hreflang="x-default"><link rel="stylesheet" href="/dddtdd-docs/assets/css/styles.ea54ca27.css">
+<script src="/dddtdd-docs/assets/js/runtime~main.c5125d29.js" defer="defer"></script>
+<script src="/dddtdd-docs/assets/js/main.3dc2ac4b.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/dddtdd-docs/"><div class="navbar__logo"><img src="/dddtdd-docs/img/logo.png" alt="DDDTDD Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/dddtdd-docs/img/logo.png" alt="DDDTDD Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">文档中心</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/dddtdd-docs/getting-started/intro">Docs</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/colinzuo/dddtdd-docs" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="切换浅色/暗黑模式（当前为浅色模式）" aria-label="切换浅色/暗黑模式（当前为浅色模式）" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input"><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/dddtdd-docs/getting-started/intro">上手指南</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/dddtdd-docs/frontend/">前端</a><button aria-label="展开侧边栏分类 &#x27;前端&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/dddtdd-docs/backend">后端</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/dddtdd-docs/programming-languages/cpp/reference/string_literal">编程语言</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/dddtdd-docs/programming-languages/cpp/reference/string_literal">cpp</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" tabindex="0" href="/dddtdd-docs/programming-languages/golang/">golang</a><button aria-label="折叠侧边栏分类 &#x27;golang&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/dddtdd-docs/programming-languages/golang/basics">basics</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/dddtdd-docs/programming-languages/golang/cmd-go">cmd-go</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/dddtdd-docs/programming-languages/golang/compile">编译</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/dddtdd-docs/programming-languages/golang/effective-go">effective-go</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/dddtdd-docs/programming-languages/golang/gin/official-doc">gin</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/dddtdd-docs/programming-languages/golang/grpc/grpc-libs">grpc</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/dddtdd-docs/programming-languages/golang/how-to-write-go-code">how-to-write-go-code</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/dddtdd-docs/programming-languages/golang/lang-spec">lang-spec</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/dddtdd-docs/programming-languages/golang/popular-libs">popular-libs</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/dddtdd-docs/programming-languages/golang/project-setup">project-setup</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/dddtdd-docs/programming-languages/golang/prometheus/doc">prometheus</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/dddtdd-docs/programming-languages/golang/std-libs/testing">std-libs</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/dddtdd-docs/programming-languages/golang/std-libs">std-libs</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/dddtdd-docs/programming-languages/golang/string">string</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/dddtdd-docs/programming-languages/golang/topics/concurrency">topics</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/dddtdd-docs/programming-languages/golang/tutorial">教程</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/dddtdd-docs/programming-languages/javascript/">javascript</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/dddtdd-docs/programming-languages/python/">python</a><button aria-label="展开侧边栏分类 &#x27;python&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/dddtdd-docs/programming-languages/typescript/">typescript</a><button aria-label="展开侧边栏分类 &#x27;typescript&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/dddtdd-docs/cloud/">云</a><button aria-label="展开侧边栏分类 &#x27;云&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/dddtdd-docs/middleware/">中间件</a><button aria-label="展开侧边栏分类 &#x27;中间件&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/dddtdd-docs/tools/">工具</a><button aria-label="展开侧边栏分类 &#x27;工具&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/dddtdd-docs/topic/">专项话题</a><button aria-label="展开侧边栏分类 &#x27;专项话题&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/dddtdd-docs/opensource-projects/electron/">开源项目</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/dddtdd-docs/machine-learning/llm/self-instruct">机器学习</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/dddtdd-docs/os/ubuntu/setup-ubuntu-basic">操作系统</a></div></li></ul></nav><button type="button" title="收起侧边栏" aria-label="收起侧边栏" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/dddtdd-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">编程语言</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/dddtdd-docs/programming-languages/golang/"><span itemprop="name">golang</span></a><meta itemprop="position" content="2"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">popular-libs</span><meta itemprop="position" content="3"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>popular-libs</h1></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="auth">auth<a class="hash-link" aria-label="auth的直接链接" title="auth的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#auth">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bcrypt">bcrypt<a class="hash-link" aria-label="bcrypt的直接链接" title="bcrypt的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#bcrypt">​</a></h3>
+<p><a href="https://pkg.go.dev/golang.org/x/crypto/bcrypt" target="_blank" rel="noopener noreferrer">https://pkg.go.dev/golang.org/x/crypto/bcrypt</a></p>
+<ul>
+<li><code>func CompareHashAndPassword(hashedPassword, password []byte) error</code></li>
+<li><code>func GenerateFromPassword(password []byte, cost int) ([]byte, error)</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="cache">cache<a class="hash-link" aria-label="cache的直接链接" title="cache的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#cache">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="go-cache">go-cache<a class="hash-link" aria-label="go-cache的直接链接" title="go-cache的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#go-cache">​</a></h3>
+<p><a href="https://github.com/patrickmn/go-cache" target="_blank" rel="noopener noreferrer">https://github.com/patrickmn/go-cache</a></p>
+<ul>
+<li><code>func New(defaultExpiration, cleanupInterval time.Duration) *Cache</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="concurrency">concurrency<a class="hash-link" aria-label="concurrency的直接链接" title="concurrency的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#concurrency">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="sync">sync<a class="hash-link" aria-label="sync的直接链接" title="sync的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#sync">​</a></h3>
+<p><a href="https://pkg.go.dev/golang.org/x/sync" target="_blank" rel="noopener noreferrer">https://pkg.go.dev/golang.org/x/sync</a></p>
+<ul>
+<li>errgroup<!-- -->
+<ul>
+<li><code>type Group struct</code></li>
+<li><code>func WithContext(ctx context.Context) (*Group, context.Context)</code></li>
+<li><code>func (g *Group) Go(f func() error)</code></li>
+<li><code>func (g *Group) Wait() error</code></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="config">config<a class="hash-link" aria-label="config的直接链接" title="config的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#config">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="pflag">pflag<a class="hash-link" aria-label="pflag的直接链接" title="pflag的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#pflag">​</a></h3>
+<p><a href="https://github.com/spf13/pflag" target="_blank" rel="noopener noreferrer">https://github.com/spf13/pflag</a></p>
+<p>兼容<code>flag</code>，另支持shorthand</p>
+<p>The pflag package also defines some new functions that are not in flag, that give one-letter shorthands for flags.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="viper">viper<a class="hash-link" aria-label="viper的直接链接" title="viper的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#viper">​</a></h3>
+<p><a href="https://github.com/spf13/viper" target="_blank" rel="noopener noreferrer">https://github.com/spf13/viper</a></p>
+<p>Viper uses the following precedence order. Each item takes precedence over the item below it:</p>
+<ul>
+<li>explicit call to Set</li>
+<li>flag</li>
+<li>env</li>
+<li>config</li>
+<li>key/value store</li>
+<li>default</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="database">database<a class="hash-link" aria-label="database的直接链接" title="database的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#database">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="go-redis">go-redis<a class="hash-link" aria-label="go-redis的直接链接" title="go-redis的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#go-redis">​</a></h3>
+<p><a href="https://github.com/redis/go-redis" target="_blank" rel="noopener noreferrer">https://github.com/redis/go-redis</a></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="gorm">gorm<a class="hash-link" aria-label="gorm的直接链接" title="gorm的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#gorm">​</a></h3>
+<p><a href="https://github.com/go-gorm/gorm" target="_blank" rel="noopener noreferrer">https://github.com/go-gorm/gorm</a>
+<a href="https://pkg.go.dev/gorm.io/gorm" target="_blank" rel="noopener noreferrer">https://pkg.go.dev/gorm.io/gorm</a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="types">Types<a class="hash-link" aria-label="Types的直接链接" title="Types的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#types">​</a></h4>
+<ul>
+<li><code>type ColumnType interface</code></li>
+<li><code>type Config struct</code></li>
+<li><code>type ConnPool interface</code></li>
+<li><code>type DB struct</code>
+<ul>
+<li><code>func Open(dialector Dialector, opts ...Option) (db *DB, err error)</code></li>
+<li><code>func (db *DB) Begin(opts ...*sql.TxOptions) *DB</code></li>
+<li><code>func (db *DB) Commit() *DB</code></li>
+<li><code>func (db *DB) Connection(fc func(tx *DB) error) (err error)</code></li>
+<li><code>func (db *DB) Create(value interface{}) (tx *DB)</code></li>
+<li><code>func (db *DB) CreateInBatches(value interface{}, batchSize int) (tx *DB)</code></li>
+<li><code>func (db *DB) DB() (*sql.DB, error)</code></li>
+<li><code>func (db *DB) Debug() (tx *DB)</code></li>
+<li><code>func (db *DB) Delete(value interface{}, conds ...interface{}) (tx *DB)</code></li>
+<li><code>func (db *DB) Exec(sql string, values ...interface{}) (tx *DB)</code></li>
+<li><code>func (db *DB) Find(dest interface{}, conds ...interface{}) (tx *DB)</code></li>
+<li><code>func (db *DB) First(dest interface{}, conds ...interface{}) (tx *DB)</code></li>
+<li><code>func (db *DB) Limit(limit int) (tx *DB)</code></li>
+<li><code>func (db *DB) Model(value interface{}) (tx *DB)</code></li>
+<li><code>func (db *DB) Not(query interface{}, args ...interface{}) (tx *DB)</code></li>
+<li><code>func (db *DB) Offset(offset int) (tx *DB)</code></li>
+<li><code>func (db *DB) Or(query interface{}, args ...interface{}) (tx *DB)</code></li>
+<li><code>func (db *DB) Order(value interface{}) (tx *DB)</code></li>
+<li><code>func (db *DB) Raw(sql string, values ...interface{}) (tx *DB)</code></li>
+<li><code>func (db *DB) Rollback() *DB</code></li>
+<li><code>func (db *DB) Row() *sql.Row</code></li>
+<li><code>func (db *DB) Rows() (*sql.Rows, error)</code></li>
+<li><code>func (db *DB) Scan(dest interface{}) (tx *DB)</code></li>
+<li><code>func (db *DB) ScanRows(rows *sql.Rows, dest interface{}) error</code></li>
+<li><code>func (db *DB) Scopes(funcs ...func(*DB) *DB) (tx *DB)</code></li>
+<li><code>func (db *DB) Select(query interface{}, args ...interface{}) (tx *DB)</code></li>
+<li><code>func (db *DB) Session(config *Session) *DB</code></li>
+<li><code>func (db *DB) Take(dest interface{}, conds ...interface{}) (tx *DB)</code></li>
+<li><code>func (db *DB) ToSQL(queryFn func(tx *DB) *DB) string</code></li>
+<li><code>func (db *DB) Transaction(fc func(tx *DB) error, opts ...*sql.TxOptions) (err error)</code></li>
+<li><code>func (db *DB) Updates(values interface{}) (tx *DB)</code></li>
+<li><code>func (db *DB) Where(query interface{}, args ...interface{}) (tx *DB)</code></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="migrate">migrate<a class="hash-link" aria-label="migrate的直接链接" title="migrate的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#migrate">​</a></h3>
+<p><a href="https://github.com/golang-migrate/migrate" target="_blank" rel="noopener noreferrer">https://github.com/golang-migrate/migrate</a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="types-1">Types<a class="hash-link" aria-label="Types的直接链接" title="Types的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#types-1">​</a></h4>
+<ul>
+<li>ErrDirty</li>
+<li>ErrShortLimit</li>
+<li>Logger<!-- -->
+<ul>
+<li><code>Printf(format string, v ...interface{})</code></li>
+</ul>
+</li>
+<li>Migrate<!-- -->
+<ul>
+<li><code>func New(sourceURL, databaseURL string) (*Migrate, error)</code></li>
+<li><code>func NewWithDatabaseInstance(sourceURL string, databaseName string, databaseInstance database.Driver) (*Migrate, error)</code></li>
+<li><code>func NewWithInstance(sourceName string, sourceInstance source.Driver, databaseName string, databaseInstance database.Driver) (*Migrate, error)</code></li>
+<li><code>func NewWithSourceInstance(sourceName string, sourceInstance source.Driver, databaseURL string) (*Migrate, error)</code></li>
+<li><code>func (m *Migrate) Close() (source error, database error)</code></li>
+<li><code>func (m *Migrate) Down() error</code></li>
+<li><code>func (m *Migrate) Drop() error</code></li>
+<li><code>func (m *Migrate) Force(version int) error</code></li>
+<li><code>func (m *Migrate) Migrate(version uint) error</code></li>
+<li><code>func (m *Migrate) Steps(n int) error</code></li>
+<li><code>func (m *Migrate) Up() error</code></li>
+<li><code>func (m *Migrate) Version() (version uint, dirty bool, err error)</code></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="mysql">mysql<a class="hash-link" aria-label="mysql的直接链接" title="mysql的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#mysql">​</a></h3>
+<p><a href="https://pkg.go.dev/github.com/go-sql-driver/mysql" target="_blank" rel="noopener noreferrer">https://pkg.go.dev/github.com/go-sql-driver/mysql</a></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="log">log<a class="hash-link" aria-label="log的直接链接" title="log的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#log">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="logrus">logrus<a class="hash-link" aria-label="logrus的直接链接" title="logrus的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#logrus">​</a></h3>
+<p><a href="https://github.com/sirupsen/logrus" target="_blank" rel="noopener noreferrer">https://github.com/sirupsen/logrus</a></p>
+<p>Logrus is a <strong>structured logger</strong> for Go (golang), completely API <strong>compatible</strong> with the standard library logger.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="lumberjack">lumberjack<a class="hash-link" aria-label="lumberjack的直接链接" title="lumberjack的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#lumberjack">​</a></h3>
+<p><a href="https://github.com/natefinch/lumberjack" target="_blank" rel="noopener noreferrer">https://github.com/natefinch/lumberjack</a></p>
+<p>lumberjack is a log rolling package for Go</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="testing">testing<a class="hash-link" aria-label="testing的直接链接" title="testing的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#testing">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="go-cmp">go-cmp<a class="hash-link" aria-label="go-cmp的直接链接" title="go-cmp的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#go-cmp">​</a></h3>
+<p><a href="https://github.com/google/go-cmp" target="_blank" rel="noopener noreferrer">https://github.com/google/go-cmp</a>
+<a href="https://pkg.go.dev/github.com/google/go-cmp/cmp" target="_blank" rel="noopener noreferrer">https://pkg.go.dev/github.com/google/go-cmp/cmp</a>
+<a href="https://pkg.go.dev/github.com/google/go-cmp@v0.5.9/cmp/cmpopts" target="_blank" rel="noopener noreferrer">https://pkg.go.dev/github.com/google/go-cmp@v0.5.9/cmp/cmpopts</a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a class="hash-link" aria-label="Functions的直接链接" title="Functions的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#functions">​</a></h4>
+<ul>
+<li><code>func Diff(x, y interface{}, opts ...Option) string</code></li>
+<li><code>func Equal(x, y interface{}, opts ...Option) bool</code></li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="cmpopts">cmpopts<a class="hash-link" aria-label="cmpopts的直接链接" title="cmpopts的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#cmpopts">​</a></h4>
+<ul>
+<li><code>func EquateApprox(fraction, margin float64) cmp.Option</code></li>
+<li><code>func EquateEmpty() cmp.Option</code></li>
+<li><code>func IgnoreFields(typ interface{}, names ...string) cmp.Option</code></li>
+<li><code>func IgnoreUnexported(typs ...interface{}) cmp.Option</code></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="gomock">gomock<a class="hash-link" aria-label="gomock的直接链接" title="gomock的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#gomock">​</a></h3>
+<p><a href="https://github.com/golang/mock" target="_blank" rel="noopener noreferrer">https://github.com/golang/mock</a>
+<a href="https://pkg.go.dev/github.com/golang/mock/gomock" target="_blank" rel="noopener noreferrer">https://pkg.go.dev/github.com/golang/mock/gomock</a></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="testcontainers-go">testcontainers-go<a class="hash-link" aria-label="testcontainers-go的直接链接" title="testcontainers-go的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#testcontainers-go">​</a></h3>
+<p><a href="https://github.com/testcontainers/testcontainers-go" target="_blank" rel="noopener noreferrer">https://github.com/testcontainers/testcontainers-go</a>
+<a href="https://golang.testcontainers.org/" target="_blank" rel="noopener noreferrer">https://golang.testcontainers.org/</a>
+<a href="https://pkg.go.dev/github.com/testcontainers/testcontainers-go" target="_blank" rel="noopener noreferrer">https://pkg.go.dev/github.com/testcontainers/testcontainers-go</a>
+<a href="https://levelup.gitconnected.com/embedded-database-in-go-testing-10d29a8e454a" target="_blank" rel="noopener noreferrer">https://levelup.gitconnected.com/embedded-database-in-go-testing-10d29a8e454a</a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="types-2">Types<a class="hash-link" aria-label="Types的直接链接" title="Types的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#types-2">​</a></h4>
+<ul>
+<li>Container<!-- -->
+<ul>
+<li><code>Endpoint(context.Context, string) (string, error)               // get proto://ip:port string for the first exposed port</code></li>
+<li><code>PortEndpoint(context.Context, nat.Port, string) (string, error) // get proto://ip:port string for the given exposed port</code></li>
+<li><code>MappedPort(context.Context, nat.Port) (nat.Port, error)         // get externally mapped port for a container port</code></li>
+<li><code>Terminate(context.Context) error             // terminate the container</code></li>
+<li><code>Exec(ctx context.Context, cmd []string, options ...tcexec.ProcessOption) (int, io.Reader, error)</code></li>
+<li><code>CopyDirToContainer(ctx context.Context, hostDirPath string, containerParentPath string, fileMode int64) error</code></li>
+<li><code>CopyFileToContainer(ctx context.Context, hostFilePath string, containerFilePath string, fileMode int64) error</code></li>
+<li><code>func GenericContainer(ctx context.Context, req GenericContainerRequest) (Container, error)</code></li>
+</ul>
+</li>
+<li>ContainerCustomizer<!-- -->
+<ul>
+<li><code>Customize(req *GenericContainerRequest)</code></li>
+</ul>
+</li>
+<li>ContainerMount<!-- -->
+<ul>
+<li><code>func BindMount(hostPath string, mountTarget ContainerMountTarget) ContainerMount</code></li>
+</ul>
+</li>
+<li>ContainerMountSource</li>
+<li>ContainerMountTarget</li>
+<li>ContainerOption</li>
+<li>ContainerProvider</li>
+<li>ContainerRequest</li>
+<li>CustomizeRequestOption</li>
+<li>FromDockerfile</li>
+<li>GenericContainerRequest</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="testify">testify<a class="hash-link" aria-label="testify的直接链接" title="testify的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#testify">​</a></h3>
+<p><a href="https://github.com/stretchr/testify" target="_blank" rel="noopener noreferrer">https://github.com/stretchr/testify</a>
+<a href="https://pkg.go.dev/github.com/stretchr/testify" target="_blank" rel="noopener noreferrer">https://pkg.go.dev/github.com/stretchr/testify</a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="assert">assert<a class="hash-link" aria-label="assert的直接链接" title="assert的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#assert">​</a></h4>
+<p><a href="https://pkg.go.dev/github.com/stretchr/testify@v1.8.2/assert" target="_blank" rel="noopener noreferrer">https://pkg.go.dev/github.com/stretchr/testify@v1.8.2/assert</a></p>
+<ul>
+<li><code>func Contains(t TestingT, s, contains interface{}, msgAndArgs ...interface{}) bool</code></li>
+<li><code>func Containsf(t TestingT, s interface{}, contains interface{}, msg string, args ...interface{}) bool</code></li>
+<li><code>func Equal(t TestingT, expected, actual interface{}, msgAndArgs ...interface{}) bool</code></li>
+<li><code>func Eventually(t TestingT, condition func() bool, waitFor time.Duration, tick time.Duration, msgAndArgs ...interface{}) bool</code></li>
+<li><code>func Eventuallyf(t TestingT, condition func() bool, waitFor time.Duration, tick time.Duration, msg string, args ...interface{}) bool</code></li>
+<li><code>func False(t TestingT, value bool, msgAndArgs ...interface{}) bool</code></li>
+<li><code>func Falsef(t TestingT, value bool, msg string, args ...interface{}) bool</code></li>
+<li><code>func Greater(t TestingT, e1 interface{}, e2 interface{}, msgAndArgs ...interface{}) bool</code></li>
+<li><code>func InDelta(t TestingT, expected, actual interface{}, delta float64, msgAndArgs ...interface{}) bool</code></li>
+<li><code>func IsType(t TestingT, expectedType interface{}, object interface{}, msgAndArgs ...interface{}) bool</code></li>
+<li><code>func Never(t TestingT, condition func() bool, waitFor time.Duration, tick time.Duration, msgAndArgs ...interface{}) bool</code></li>
+<li><code>func Nil(t TestingT, object interface{}, msgAndArgs ...interface{}) bool</code></li>
+<li><code>func NotContains(t TestingT, s, contains interface{}, msgAndArgs ...interface{}) bool</code></li>
+<li><code>func NotEqual(t TestingT, expected, actual interface{}, msgAndArgs ...interface{}) bool</code></li>
+<li><code>func True(t TestingT, value bool, msgAndArgs ...interface{}) bool</code></li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="mock">mock<a class="hash-link" aria-label="mock的直接链接" title="mock的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#mock">​</a></h4>
+<p><a href="https://pkg.go.dev/github.com/stretchr/testify@v1.8.2/mock" target="_blank" rel="noopener noreferrer">https://pkg.go.dev/github.com/stretchr/testify@v1.8.2/mock</a></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="functions-1">Functions<a class="hash-link" aria-label="Functions的直接链接" title="Functions的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#functions-1">​</a></h5>
+<ul>
+<li><code>func AssertExpectationsForObjects(t TestingT, testObjects ...interface{}) bool</code></li>
+<li><code>func MatchedBy(fn interface{}) argumentMatcher</code></li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="types-3">Types<a class="hash-link" aria-label="Types的直接链接" title="Types的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#types-3">​</a></h5>
+<ul>
+<li><code>func AnythingOfType(t string) AnythingOfTypeArgument</code></li>
+<li><code>type Arguments []interface{}</code></li>
+<li><code>type Call struct {</code>
+<ul>
+<li><code>func (c *Call) After(d time.Duration) *Call</code></li>
+<li><code>func (c *Call) Maybe() *Call</code></li>
+<li><code>func (c *Call) On(methodName string, arguments ...interface{}) *Call</code></li>
+<li><code>func (c *Call) Panic(msg string) *Call</code></li>
+<li><code>func (c *Call) Return(returnArguments ...interface{}) *Call</code></li>
+<li><code>func (c *Call) Run(fn func(args Arguments)) *Call</code></li>
+<li><code>func (c *Call) Unset() *Call</code></li>
+<li><code>func (c *Call) WaitUntil(w &lt;-chan time.Time) *Call</code></li>
+</ul>
+</li>
+<li><code>type Mock struct {</code>
+<ul>
+<li><code>func (m *Mock) On(methodName string, arguments ...interface{}) *Call</code></li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="require">require<a class="hash-link" aria-label="require的直接链接" title="require的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#require">​</a></h4>
+<p><a href="https://pkg.go.dev/github.com/stretchr/testify@v1.8.2/require" target="_blank" rel="noopener noreferrer">https://pkg.go.dev/github.com/stretchr/testify@v1.8.2/require</a></p>
+<p>Package require implements the same assertions as the <code>assert</code> package but stops test execution when a test fails</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="suite">suite<a class="hash-link" aria-label="suite的直接链接" title="suite的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#suite">​</a></h4>
+<p><a href="https://pkg.go.dev/github.com/stretchr/testify@v1.8.2/suite" target="_blank" rel="noopener noreferrer">https://pkg.go.dev/github.com/stretchr/testify@v1.8.2/suite</a></p>
+<ul>
+<li><code>func Run(t *testing.T, suite TestingSuite)</code></li>
+<li><code>type AfterTest interface</code></li>
+<li><code>type BeforeTest interface</code></li>
+<li><code>type SetupAllSuite interface</code></li>
+<li><code>type SetupTestSuite interface</code></li>
+<li><code>type Suite struct</code>
+<ul>
+<li><code>func (suite *Suite) Assert() *assert.Assertions</code></li>
+<li><code>func (suite *Suite) Require() *require.Assertions</code></li>
+<li><code>func (suite *Suite) T() *testing.T</code></li>
+</ul>
+</li>
+<li><code>type TearDownAllSuite interface</code></li>
+<li><code>type TearDownTestSuite interface</code></li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="mockery">mockery<a class="hash-link" aria-label="mockery的直接链接" title="mockery的直接链接" href="/dddtdd-docs/programming-languages/golang/popular-libs#mockery">​</a></h4>
+<p><a href="https://github.com/vektra/mockery" target="_blank" rel="noopener noreferrer">https://github.com/vektra/mockery</a>
+<a href="https://vektra.github.io/mockery/" target="_blank" rel="noopener noreferrer">https://vektra.github.io/mockery/</a></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>Colin Zuo</b> <!-- -->于 <b><time datetime="2024-07-05T13:43:39.000Z" itemprop="dateModified">2024年7月5日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/dddtdd-docs/programming-languages/golang/lang-spec"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">lang-spec</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/dddtdd-docs/programming-languages/golang/project-setup"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">project-setup</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#auth">auth</a><ul><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#bcrypt">bcrypt</a></li></ul></li><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#cache">cache</a><ul><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#go-cache">go-cache</a></li></ul></li><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#concurrency">concurrency</a><ul><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#sync">sync</a></li></ul></li><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#config">config</a><ul><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#pflag">pflag</a></li><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#viper">viper</a></li></ul></li><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#database">database</a><ul><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#go-redis">go-redis</a></li><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#gorm">gorm</a></li><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#migrate">migrate</a></li><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#mysql">mysql</a></li></ul></li><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#log">log</a><ul><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#logrus">logrus</a></li><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#lumberjack">lumberjack</a></li></ul></li><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#testing">testing</a><ul><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#go-cmp">go-cmp</a></li><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#gomock">gomock</a></li><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#testcontainers-go">testcontainers-go</a></li><li><a class="table-of-contents__link toc-highlight" href="/dddtdd-docs/programming-languages/golang/popular-libs#testify">testify</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/dddtdd-docs/getting-started/intro">上手指南</a></li></ul></div><div class="col footer__col"><div class="footer__title">Github</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Docusaurus<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">更多</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Docusaurus<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://daringfireball.net/projects/markdown/syntax" target="_blank" rel="noopener noreferrer" class="footer__link-item">Markdown语法<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 ColinZuo.</div></div></div></footer></div>
+</body>
+</html>
