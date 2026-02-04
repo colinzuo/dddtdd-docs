@@ -15,6 +15,8 @@ print(ta.validate_python(1))
 #> 1
 ```
 
+#### Adding validation and serialization
+
 ```py
 from pydantic import (
     AfterValidator,
@@ -33,7 +35,7 @@ TruncatedFloat = Annotated[
 
 ### Customizing validation with `__get_pydantic_core_schema__`
 
-You can implement `__get_pydantic_core_schema__` both on a custom type and on metadata intended to be put in Annotated. In both cases the API is middleware-like and similar to that of "wrap" validators: you get a `source_type` (which isn't necessarily the same as the class, in particular for generics) and a `handler` that you can call with a type to either call the next metadata in `Annotated` or call into Pydantic's internal schema generation
+You can implement `__get_pydantic_core_schema__` both on a **custom type** and on **metadata** intended to be put in Annotated. In both cases the API is middleware-like and similar to that of "wrap" validators: you get a `source_type` (which isn't necessarily the same as the class, in particular for generics) and a `handler` that you can call with a type to either call the next metadata in `Annotated` or call into Pydantic's internal schema generation
 
 #### As a method on a custom type
 
@@ -49,6 +51,24 @@ class Username(str):
         cls, source_type: Any, handler: GetCoreSchemaHandler
     ) -> CoreSchema:
         return core_schema.no_info_after_validator_function(cls, handler(str))
+```
+
+#### As an annotation
+
+```py
+@dataclass(frozen=True)  
+class MyAfterValidator:
+    func: Callable[[Any], Any]
+
+    def __get_pydantic_core_schema__(
+        self, source_type: Any, handler: GetCoreSchemaHandler
+    ) -> CoreSchema:
+        return core_schema.no_info_after_validator_function(
+            self.func, handler(source_type)
+        )
+
+
+Username = Annotated[str, MyAfterValidator(str.lower)]
 ```
 
 #### As an annotation

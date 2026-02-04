@@ -41,9 +41,39 @@ results = collection.find({
 - `$size`, which returns all documents with arrays of a specified size
 
 ```py
+cursor = db.inventory.find({"tags": {"$all": ["red", "blank"]}})
+```
+
+```py
+cursor = db.inventory.find({"dim_cm": {"$elemMatch": {"$gt": 22, "$lt": 30}}})
+```
+
+```py
 results = collection.find({
     "type" : { "$size": 2 }
 })
+```
+
+### Arrays of Embedded Documents
+
+```py
+cursor = db.inventory.find({"instock": {"warehouse": "A", "qty": 5}})
+```
+
+```py
+cursor = db.inventory.find({"instock.qty": {"$lte": 20}})
+```
+
+```py
+cursor = db.inventory.find({"instock": {"$elemMatch": {"qty": 5, "warehouse": "A"}}})
+```
+
+```py
+cursor = db.inventory.find({"instock": {"$elemMatch": {"qty": {"$gt": 10, "$lte": 20}}}})
+```
+
+```py
+cursor = db.inventory.find({"instock.qty": {"$gt": 10, "$lte": 20}})
 ```
 
 ### Element Operators

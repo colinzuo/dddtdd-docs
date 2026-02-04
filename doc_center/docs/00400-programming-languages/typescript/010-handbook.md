@@ -1,5 +1,5 @@
 
-[https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html)
+[https://www.typescriptlang.org/docs/handbook/intro.html](https://www.typescriptlang.org/docs/handbook/intro.html)
 
 ## TypeScript for the New Programmer
 
@@ -15,13 +15,13 @@ TypeScript is also a programming language that preserves the runtime behavior of
 
 ### Types by Inference
 
-```typescript
+```ts
 let helloWorld = "Hello World";
 ```
 
 ### Defining Types
 
-```typescript
+```ts
 interface User {
   name: string;
   id: number;
@@ -35,7 +35,7 @@ const user: User = {
 
 ### Composing Types
 
-```typescript
+```ts
 type MyBool = true | false;
 
 type WindowStates = "open" | "closed" | "minimized";
@@ -87,7 +87,7 @@ tsc hello.ts
 
 ### Downleveling
 
-By default TypeScript targets **ES3**, an extremely old version of ECMAScript. We could have chosen something a little bit more recent by using the **target option**
+By default TypeScript targets **ES5**, an extremely old version of ECMAScript. We could have chosen something a little bit more recent by using the **target** option
 
 `tsc --target es2015 hello.ts`
 
@@ -97,18 +97,18 @@ TypeScript has **several type-checking strictness flags** that can be turned on 
 
 **"strict": true** in a tsconfig.json toggles them **all on simultaneously**, but we can opt out of them individually. The two biggest ones you should know about are noImplicitAny and strictNullChecks.
 
-- noImplicitAny: TypeScript doesn’t try to infer types for us and instead falls back to the most lenient type: any
-- strictNullChecks: By default, values like null and undefined are assignable to any other type
+- `noImplicitAny`: TypeScript doesn’t try to infer types for us and instead falls back to the most lenient type: any
+- `strictNullChecks`: By default, values like null and undefined are assignable to any other type
 
 ## Everyday Types
 
-The primitives: string, number, and boolean
+The primitives: `string`, `number`, and `boolean`
 
 JavaScript does not have a special runtime value for integers, so there’s **no equivalent to int or float - everything is simply number**
 
 Arrays, any, Functions
 
-Apart from primitives, the most common sort of type you’ll encounter is an object type.
+Apart from primitives, the most common sort of type you’ll encounter is an **object type**.
 
 Object types can also specify that some or all of their properties are optional. To do this, add a **? after the property name**
 
@@ -152,7 +152,13 @@ interface Window {
 const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;
 ```
 
-Sometimes this rule can be too conservative and will disallow more complex coercions that might be valid. If this happens, you can use two assertions
+TypeScript **only allows** type assertions which convert to a more specific or less specific version of a type. This rule prevents “impossible” coercions like
+
+```ts
+const x = "hello" as number;
+```
+
+Sometimes this rule can be too conservative and will disallow more complex coercions that might be valid. If this happens, you can use **two assertions**, first to any (or unknown, which we’ll introduce later), then to the desired type
 
 ```ts
 const a = (expr as any) as T;
@@ -168,7 +174,7 @@ function printText(s: string, alignment: "left" | "right" | "center") {
 }
 ```
 
-The type boolean itself is actually just an alias for the union true | false
+The type boolean itself is actually just an alias for the union `true | false`
 
 You can change the inference by adding a type assertion in either location
 
@@ -190,6 +196,8 @@ handleRequest(req.url, req.method);
 
 **strictNullChecks** off/on
 
+Writing `!` after any expression is effectively a type assertion that the value isn’t null or undefined
+
 ```typescript
 function liveDangerously(x?: number | null) {
   // No error
@@ -203,30 +211,50 @@ Unlike most TypeScript features, this is **not a type-level addition to JavaScri
 
 ## Narrowing
 
-typeof type guards
+### typeof type guards
 
 Within our if check, TypeScript sees **typeof padding === "number"** and understands that as a special form of code called a **type guard**
 
 It looks at these special checks (called type guards) and assignments, and the process of **refining types to more specific types than declared is called narrowing**
 
+As we’ve seen, JavaScript supports a `typeof` operator which can give very basic information about the type of values we have at runtime. TypeScript expects this to return a certain set of strings:
+
+- "string"
+- "number"
+- "bigint"
+- "boolean"
+- "symbol"
+- "undefined"
+- "object"
+- "function"
+
 in JavaScript, typeof null is actually "object"
 
-Truthiness narrowing
+### Truthiness narrowing
 
 In JavaScript, constructs like if first **“coerce” their conditions to booleans** to make sense of them
 
-You can always coerce values to booleans by running them through the Boolean function, or by using the shorter double-Boolean negation
+Values like
 
-### Equality narrowing
+- 0
+- NaN
+- "" (the empty string)
+- 0n (the bigint version of zero)
+- null
+- undefined
 
-checking whether something == null actually not only checks whether it is specifically the value null - it also checks whether it’s potentially undefined
+all coerce to false, and other values get coerced to true. You can always coerce values to booleans by running them through the `Boolean` function, or by using the shorter `double-Boolean negation`
+
+#### Equality narrowing
+
+checking whether something `== null` actually not only checks whether it is specifically the value null - it also checks whether it’s potentially undefined
 
 ```typescript
 function example(x: string | number, y: string | boolean) {
   if (x === y) {
 ```
 
-### The in operator narrowing
+#### The in operator narrowing
 
 ```typescript
 type Fish = { swim: () => void };
@@ -241,7 +269,7 @@ function move(animal: Fish | Bird) {
 }
 ```
 
-### instanceof narrowing
+#### instanceof narrowing
 
 in JavaScript x instanceof Foo checks whether the prototype chain of x contains Foo.prototype
 
@@ -251,7 +279,7 @@ function logValue(x: Date | string) {
     console.log(x.toUTCString());
 ```
 
-### Using type predicates
+#### Using type predicates
 
 To define a **user-defined type guard**, we simply need to define a function whose return type is a type predicate
 
@@ -283,9 +311,9 @@ function getArea(shape: Shape) {
     return Math.PI * shape.radius ** 2;
 ```
 
-### The never type
+### Exhaustiveness checking
 
-The never type is assignable to every type; however, no type is assignable to never (except never itself)
+The `never` type is assignable to every type; however, **no type is assignable to never (except never itself)**
 
 ```typescript
 function getArea(shape: Shape) {
@@ -302,7 +330,7 @@ function getArea(shape: Shape) {
 
 In JavaScript, functions can have properties in addition to being callable
 
-If we want to describe something callable with properties, we can write a call signature in an object type
+If we want to describe something **callable with properties**, we can write a call signature in an object type
 
 ```typescript
 type DescribableFunction = {
@@ -347,7 +375,11 @@ function firstElement<Type>(arr: Type[]): Type | undefined {
 ### Optional Parameters
 
 ```typescript
-function f(x?: number) {
+function f(x?: number)
+
+function f(x = 10) {
+  // ...
+}
 ```
 
 ### Function Overloads
@@ -372,7 +404,7 @@ function makeDate(mOrTimestamp: number, d?: number, y?: number): Date {
 
 ### Declaring this in a Function
 
-The JavaScript specification states that you cannot have a parameter called this, and so TypeScript uses that syntax space to let you declare the type for this in the function body
+**The JavaScript specification states that you cannot have a parameter called this**, and so TypeScript uses that syntax space to let you declare the type for this in the function body
 
 ```ts
 interface DB {
@@ -389,21 +421,23 @@ const admins = db.filterUsers(function (this: User) {
 
 In JavaScript, a function that doesn’t return any value will implicitly return the value undefined. However, **void and undefined are not the same thing in TypeScript**
 
-object is not Object. Always use object!
+**object is not Object. Always use object**!
 
-unknown: The unknown type represents any value. This is similar to the any type, but is safer because it’s not legal to do anything with an unknown value
+`unknown`: The unknown type **represents any value**. This is similar to the any type, but is safer because it’s not legal to do anything with an unknown value
 
-The never type represents values which are never observed. In a return type, this means that the function throws an exception or terminates execution of the program.
+The `never` type represents values which are never observed. In a return type, this means that the function throws an exception or terminates execution of the program.
 
 never also appears when TypeScript determines there’s nothing left in a union
 
-The global type Function describes properties like bind, call, apply, and others present on all function values in JavaScript.
+The global type `Function` describes properties like bind, call, apply, and others present on all function values in JavaScript.
 
 values of type Function can always be called; these calls return any
 
 ### Rest Parameters and Arguments
 
-A rest parameter appears after all other parameters, and uses the ... syntax
+#### Rest Parameters
+
+A rest parameter appears after all other parameters, and uses the `... syntax`
 
 ```typescript
 function multiply(n: number, ...m: number[]) {
@@ -412,6 +446,10 @@ function multiply(n: number, ...m: number[]) {
 // 'a' gets value [10, 20, 30, 40]
 const a = multiply(10, 1, 2, 3, 4);
 ```
+
+#### Rest Arguments
+
+Conversely, we can provide a variable number of arguments from an iterable object (for example, an array) using the `spread syntax`
 
 Note that in general, TypeScript does not assume that arrays are immutable
 
@@ -449,7 +487,7 @@ a contextual function type with a void return type `(type vf = () => void)`, whe
 
 ### Property Modifiers
 
-- optional
+#### optional
 
 ```typescript
 interface PaintOptions {
@@ -467,7 +505,7 @@ In an object destructuring pattern, `shape: Shape` means “grab the property sh
 function draw({ shape: Shape, xPos: number = 100 /*...*/ }) {
 ```
 
-- readonly Properties
+#### readonly Properties
 
 ```typescript
 interface SomeType {
@@ -481,7 +519,7 @@ Sometimes you don’t know all the names of a type’s properties ahead of time,
 
 Only some types are allowed for index signature properties: string, number, symbol, template string patterns, and union types consisting only of these
 
-when indexing with a number, JavaScript will actually **convert that to a string before indexing into an object**
+when indexing with a `number`, JavaScript will actually **convert that to a string before indexing into an object**
 
 ```typescript
 interface StringArray {
@@ -534,7 +572,7 @@ type ColorfulCircle = Colorful & Circle;
 
 A tuple type is another sort of Array type that knows **exactly how many elements it contains, and exactly which types it contains at specific positions**
 
-Like ReadonlyArray, it has no representation at runtime, but is significant to TypeScript.
+Like `ReadonlyArray`, it has no representation at runtime, but is significant to TypeScript.
 
 ```typescript
 type StringNumberPair = [string, number];
@@ -819,4 +857,4 @@ There are many TSConfig flags which influence the module strategy within TypeScr
 
 ### TypeScript’s Module Output Options
 
-All communication between modules happens via a module loader, the compiler option module determines which one is used. At runtime the module loader is responsible for locating and executing all dependencies of a module before executing it.
+All communication between modules happens via a module loader, the compiler option `module` determines which one is used. At runtime the module loader is responsible for locating and executing all dependencies of a module before executing it.

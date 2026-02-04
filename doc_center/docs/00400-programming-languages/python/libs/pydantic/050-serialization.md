@@ -47,6 +47,10 @@ FancyInt = Annotated[int, WrapSerializer(ser_wrap, when_used='json')]
 
 ## Serializing subclasses
 
+### Subclasses of standard types
+
+Subclasses of standard types are **automatically dumped like their super-classes**
+
 ### Serializing with duck-typing 
 
 If you want v1-style duck-typing serialization behavior, you can use a runtime setting, or annotate individual types.

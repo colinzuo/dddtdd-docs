@@ -71,8 +71,8 @@ db.getCollectionInfos()
 
 ## insert
 
-- <https://www.mongodb.com/docs/manual/reference/method/db.collection.insertOne>
-- <https://www.mongodb.com/docs/manual/reference/method/db.collection.insertMany>
+- [https://www.mongodb.com/docs/manual/reference/method/db.collection.insertOne](https://www.mongodb.com/docs/manual/reference/method/db.collection.insertOne)
+- [https://www.mongodb.com/docs/manual/reference/method/db.collection.insertMany](https://www.mongodb.com/docs/manual/reference/method/db.collection.insertMany)
 
 ```
 db.movies.insertOne(
@@ -97,7 +97,7 @@ db.myNewCollection3.createIndex( { y: 1 } )
 
 ### query
 
-- <https://www.mongodb.com/docs/manual/reference/method/db.collection.find>
+- [https://www.mongodb.com/docs/manual/reference/method/db.collection.find](https://www.mongodb.com/docs/manual/reference/method/db.collection.find)
 
 ```
 db.movies.find()
@@ -180,9 +180,9 @@ db.inventory.find( { status: "A" }, { item: 1, status: 1, instock: { $slice: -1 
 ```
 ### Update
 
-- <https://www.mongodb.com/docs/manual/reference/method/db.collection.updateOne>
-- <https://www.mongodb.com/docs/manual/reference/method/db.collection.updateMany>
-- <https://www.mongodb.com/docs/manual/reference/method/db.collection.replaceOne>
+- [https://www.mongodb.com/docs/manual/reference/method/db.collection.updateOne](https://www.mongodb.com/docs/manual/reference/method/db.collection.updateOne)
+- [https://www.mongodb.com/docs/manual/reference/method/db.collection.updateMany](https://www.mongodb.com/docs/manual/reference/method/db.collection.updateMany)
+- [https://www.mongodb.com/docs/manual/reference/method/db.collection.replaceOne](https://www.mongodb.com/docs/manual/reference/method/db.collection.replaceOne)
 
 ```
 {
@@ -216,8 +216,8 @@ db.accounts.replaceOne(
 
 ### Delete
 
-- <https://www.mongodb.com/docs/manual/reference/method/db.collection.deleteOne>
-- <https://www.mongodb.com/docs/manual/reference/method/db.collection.deleteMany>
+- [https://www.mongodb.com/docs/manual/reference/method/db.collection.deleteOne](https://www.mongodb.com/docs/manual/reference/method/db.collection.deleteOne)
+- [https://www.mongodb.com/docs/manual/reference/method/db.collection.deleteMany](https://www.mongodb.com/docs/manual/reference/method/db.collection.deleteMany)
 
 ``` 
 db.movies.deleteMany({})

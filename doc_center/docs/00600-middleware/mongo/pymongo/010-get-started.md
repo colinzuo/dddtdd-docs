@@ -1,5 +1,8 @@
 # Get Started with PyMongo
 
+[https://www.mongodb.com/docs/languages/python/pymongo-driver/current/](https://www.mongodb.com/docs/languages/python/pymongo-driver/current/)
+[https://pymongo.readthedocs.io/en/stable/](https://pymongo.readthedocs.io/en/stable/)
+
 ## Download and Install
 
 ```shell
